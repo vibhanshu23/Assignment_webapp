@@ -144,7 +144,13 @@ public class Utilities extends HttpServlet{
 		String TOMCAT_HOME = System.getProperty("catalina.home");
 			try
 			{		
-				FileInputStream fileInputStream=new FileInputStream(new File(TOMCAT_HOME+"\\webapps\\Tutorial_1\\UserDetails.txt"));
+				// FileInputStream fileInputStream=new FileInputStream(new File(TOMCAT_HOME+"\\webapps\\Assignment_webapp\\UserDetails.txt"));
+				// ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);	      
+				// hm= (HashMap)objectInputStream.readObject();
+
+				String relativeWebPathForUserdetails = "/UserDetails.txt";
+  				String absoluteDiskPath = getServletContext().getRealPath(relativeWebPathForUserdetails);
+				FileInputStream fileInputStream=new FileInputStream(new File(absoluteDiskPath));
 				ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);	      
 				hm= (HashMap)objectInputStream.readObject();
 			}
@@ -169,9 +175,15 @@ public class Utilities extends HttpServlet{
 		String TOMCAT_HOME = System.getProperty("catalina.home");
 			try
 			{
-				FileInputStream fileInputStream = new FileInputStream(new File(TOMCAT_HOME+"\\webapps\\Tutorial_1\\PaymentDetails.txt"));
+				// FileInputStream fileInputStream = new FileInputStream(new File(TOMCAT_HOME+"\\webapps\\Assignment_webapp\\PaymentDetails.txt"));
+				// ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);	      
+				// orderPayments = (HashMap)objectInputStream.readObject();
+
+				String relativeWebPathForPaymentdetails = "/PaymentDetails.txt";
+  				String absoluteDiskPath = getServletContext().getRealPath(relativeWebPathForPaymentdetails);
+				FileInputStream fileInputStream = new FileInputStream(new File(absoluteDiskPath));
 				ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);	      
-				orderPayments = (HashMap)objectInputStream.readObject();
+				orderPayments = (HashMap)objectInputStream.readObject();	
 			}
 			catch(Exception e)
 			{
@@ -233,7 +245,13 @@ public class Utilities extends HttpServlet{
 			// get the payment details file 
 			try
 			{
-				FileInputStream fileInputStream = new FileInputStream(new File(TOMCAT_HOME+"\\webapps\\Tutorial_1\\PaymentDetails.txt"));
+				// FileInputStream fileInputStream = new FileInputStream(new File(TOMCAT_HOME+"\\webapps\\Assignment_webapp\\PaymentDetails.txt"));
+				// ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);	      
+				// orderPayments = (HashMap)objectInputStream.readObject();
+
+				String relativeWebPathForPaymentdetails = "/PaymentDetails.txt";
+  				String absoluteDiskPath = getServletContext().getRealPath(relativeWebPathForPaymentdetails);
+				FileInputStream fileInputStream = new FileInputStream(new File(absoluteDiskPath));
 				ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);	      
 				orderPayments = (HashMap)objectInputStream.readObject();
 			}
@@ -259,7 +277,16 @@ public class Utilities extends HttpServlet{
 
 			try
 			{	
-				FileOutputStream fileOutputStream = new FileOutputStream(new File(TOMCAT_HOME+"\\webapps\\Tutorial_1\\PaymentDetails.txt"));
+				// FileOutputStream fileOutputStream = new FileOutputStream(new File(TOMCAT_HOME+"\\webapps\\Assignment_webapp\\PaymentDetails.txt"));
+				// ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+            	// objectOutputStream.writeObject(orderPayments);
+				// objectOutputStream.flush();
+				// objectOutputStream.close();       
+				// fileOutputStream.close();
+
+				String relativeWebPathForPaymentdetails = "/PaymentDetails.txt";
+  				String absoluteDiskPath = getServletContext().getRealPath(relativeWebPathForPaymentdetails);
+				FileOutputStream fileOutputStream = new FileOutputStream(new File(absoluteDiskPath));
 				ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
             	objectOutputStream.writeObject(orderPayments);
 				objectOutputStream.flush();

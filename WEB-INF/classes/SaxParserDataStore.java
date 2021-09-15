@@ -5,7 +5,7 @@
 http://www.saxproject.org/
 
 SAX is the Simple API for XML, originally a Java-only API. 
-SAX was the first widely adopted API for XML in Java, and is a “de facto” standard. 
+SAX was the first widely adopted API for XML in Java, and is a e facto standard. 
 The current version is SAX 2.0.1, and there are versions for several programming language environments other than Java. 
 
 The following URL from Oracle is the JAVA documentation for the API
@@ -27,6 +27,10 @@ import javax.xml.parsers.SAXParserFactory;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 
 
 ////////////////////////////////////////////////////////////
@@ -252,8 +256,9 @@ https://docs.oracle.com/javase/7/docs/api/org/xml/sax/helpers/DefaultHandler.htm
     ////////////////////////////////////////
 	
 //call the constructor to parse the xml and get product details
- public static void addHashmap() {
-		String TOMCAT_HOME = System.getProperty("catalina.home");	
-		new SaxParserDataStore(TOMCAT_HOME+"\\webapps\\Tutorial_1\\ProductCatalog.xml");
+ public static void addHashmap(String path) {
+
+		new SaxParserDataStore(path);
+
     } 
 }

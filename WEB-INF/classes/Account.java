@@ -58,7 +58,14 @@ public class Account extends HttpServlet {
 			String TOMCAT_HOME = System.getProperty("catalina.home");
 			try
 				{
-					FileInputStream fileInputStream = new FileInputStream(new File(TOMCAT_HOME+"\\webapps\\Tutorial_1\\PaymentDetails.txt"));
+					// FileInputStream fileInputStream = new FileInputStream(new File(TOMCAT_HOME+"/webapps/Assignment_webapp/PaymentDetails.txt"));
+					// ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);	      
+					// orderPayments = (HashMap)objectInputStream.readObject();
+
+
+					String relativeWebPathForPaymentdetails = "/PaymentDetails.txt";
+  					String absoluteDiskPath = getServletContext().getRealPath(relativeWebPathForPaymentdetails);
+					FileInputStream fileInputStream = new FileInputStream(new File(absoluteDiskPath));
 					ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);	      
 					orderPayments = (HashMap)objectInputStream.readObject();
 				}

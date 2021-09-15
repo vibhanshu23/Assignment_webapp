@@ -50,9 +50,16 @@ public class Registration extends HttpServlet {
 
 			try
 			{
- 			 FileInputStream fileInputStream = new FileInputStream(new File(TOMCAT_HOME+"\\webapps\\Tutorial_1\\UserDetails.txt"));
-			 ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);	      
-			 hm= (HashMap)objectInputStream.readObject();
+ 			//  FileInputStream fileInputStream = new FileInputStream(new File(TOMCAT_HOME+"\\webapps\\Assignment_webapp\\UserDetails.txt"));
+			//  ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);	      
+			//  hm= (HashMap)objectInputStream.readObject();
+
+				String relativeWebPathForUserdetails = "/UserDetails.txt";
+  				String absoluteDiskPath = getServletContext().getRealPath(relativeWebPathForUserdetails);
+				FileInputStream fileInputStream = new FileInputStream(new File(absoluteDiskPath));
+			 	ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);	      
+			 	hm= (HashMap)objectInputStream.readObject();
+
 			}
 			catch(Exception e)
 			{
@@ -70,8 +77,15 @@ public class Registration extends HttpServlet {
 
 				User user = new User(username,password,usertype);
 				hm.put(username, user);
-			    FileOutputStream fileOutputStream = new FileOutputStream(TOMCAT_HOME+"\\webapps\\Tutorial_1\\UserDetails.txt");
-        		ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+			    
+				
+				// FileOutputStream fileOutputStream = new FileOutputStream(TOMCAT_HOME+"\\webapps\\Assignment_webapp\\UserDetails.txt");
+        		
+				String relativeWebPathForUserdetails = "/UserDetails.txt";
+  				String absoluteDiskPath = getServletContext().getRealPath(relativeWebPathForUserdetails);
+				FileOutputStream fileOutputStream = new FileOutputStream(absoluteDiskPath);
+
+				ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
            	 	objectOutputStream.writeObject(hm);
 				objectOutputStream.flush();
 				objectOutputStream.close();       
