@@ -2,7 +2,7 @@
 
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
 
-  <display-name>Games Speed</display-name>
+  <display-name>Smart Portablesssfasdadd</display-name>
   
   <!-- See the welcome-file Reference Material here: http://www.javatpoint.com/welcome-file-list -->
   <welcome-file-list>

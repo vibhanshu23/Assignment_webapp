@@ -1,0 +1,374 @@
+<?xml version="1.0"?>
+<ProductCatalog>
+    <ProductCategory>
+        <Category id = "Wearable Technology">
+            <Name>"Wearable Technology"</Name>
+            <SubCategory id = "Fitness Watches">
+                <Name>"Fitness Watches"</Name>
+                <Product id = "Fitness Watch 1">
+                    <name>Fitness Watch 1</name>
+                    <price>399.99</price>
+                    <image>xbox1.jpg</image>
+                    <manufacturer>Microsoft</manufacturer>
+                    <condition>New</condition>
+                    <discount>10.0</discount>
+                    <accessories>
+                        <accessory>xboxone_wc</accessory>
+                        <accessory>xboxone_sh</accessory>
+                        <accessory>xboxone_kg</accessory>
+                        <accessory>xboxone_vb</accessory>
+                        <accessory>xboxone_rs</accessory>
+                        <accessory>xboxone_mp</accessory>
+                        <accessory>xboxone_mc</accessory>
+                    </accessories>
+                </Product>
+                <Product id = "Fitness Watch 2">
+                    <name>Fitness Watch 2</name>
+                    <price>399.99</price>
+                    <image>xbox1.jpg</image>
+                    <manufacturer>Microsoft</manufacturer>
+                    <condition>New</condition>
+                    <discount>10.0</discount>
+                    <accessories>
+                        <accessory>xboxone_wc</accessory>
+                        <accessory>xboxone_sh</accessory>
+                        <accessory>xboxone_kg</accessory>
+                        <accessory>xboxone_vb</accessory>
+                        <accessory>xboxone_rs</accessory>
+                        <accessory>xboxone_mp</accessory>
+                        <accessory>xboxone_mc</accessory>
+                    </accessories>
+                </Product>
+            </SubCategory>
+            <SubCategory id = "Smart Watches">
+                <Name>"Smart Watches"</Name>
+                <Product id = "Smart Watch 1">
+                    <name>Smart Watch 1</name>
+                    <price>399.99</price>
+                    <image>xbox1.jpg</image>
+                    <manufacturer>Microsoft</manufacturer>
+                    <condition>New</condition>
+                    <discount>10.0</discount>
+                    <accessories>
+                        <accessory>xboxone_wc</accessory>
+                        <accessory>xboxone_sh</accessory>
+                        <accessory>xboxone_kg</accessory>
+                        <accessory>xboxone_vb</accessory>
+                        <accessory>xboxone_rs</accessory>
+                        <accessory>xboxone_mp</accessory>
+                        <accessory>xboxone_mc</accessory>
+                    </accessories>
+                </Product>
+                <Product id = "Smart Watch 2">
+                    <name>Smart Watch 2</name>
+                    <price>399.99</price>
+                    <image>xbox1.jpg</image>
+                    <manufacturer>Microsoft</manufacturer>
+                    <condition>New</condition>
+                    <discount>10.0</discount>
+                    <accessories>
+                        <accessory>xboxone_wc</accessory>
+                        <accessory>xboxone_sh</accessory>
+                        <accessory>xboxone_kg</accessory>
+                        <accessory>xboxone_vb</accessory>
+                        <accessory>xboxone_rs</accessory>
+                        <accessory>xboxone_mp</accessory>
+                        <accessory>xboxone_mc</accessory>
+                    </accessories>
+                </Product>
+            </SubCategory>
+        </Category>
+        <Category id = "Phones">
+            <Name>"Phones"</Name>
+            <SubCategory id = "Apple">
+                <Name>"Apple"</Name>
+                <Product id = "Phone 1">
+                    <name>Phone 1</name>
+                    <price>399.99</price>
+                    <image>xbox1.jpg</image>
+                    <manufacturer>Microsoft</manufacturer>
+                    <condition>New</condition>
+                    <discount>10.0</discount>
+                    <accessories>
+                        <accessory>xboxone_wc</accessory>
+                        <accessory>xboxone_sh</accessory>
+                        <accessory>xboxone_kg</accessory>
+                        <accessory>xboxone_vb</accessory>
+                        <accessory>xboxone_rs</accessory>
+                        <accessory>xboxone_mp</accessory>
+                        <accessory>xboxone_mc</accessory>
+                    </accessories>
+                </Product>
+                <Product id = "Phone 2">
+                    <name>Phone 2</name>
+                    <price>399.99</price>
+                    <image>xbox1.jpg</image>
+                    <manufacturer>Microsoft</manufacturer>
+                    <condition>New</condition>
+                    <discount>10.0</discount>
+                    <accessories>
+                        <accessory>xboxone_wc</accessory>
+                        <accessory>xboxone_sh</accessory>
+                        <accessory>xboxone_kg</accessory>
+                        <accessory>xboxone_vb</accessory>
+                        <accessory>xboxone_rs</accessory>
+                        <accessory>xboxone_mp</accessory>
+                        <accessory>xboxone_mc</accessory>
+                    </accessories>
+                </Product>
+            </SubCategory>
+            <SubCategory id = "Samsung">
+                <Name>"Samsung"</Name>
+                <Product id = "Samsung Phone 1">
+                    <name>Samsung Phone 1</name>
+                    <price>399.99</price>
+                    <image>xbox1.jpg</image>
+                    <manufacturer>Microsoft</manufacturer>
+                    <condition>New</condition>
+                    <discount>10.0</discount>
+                    <accessories>
+                        <accessory>xboxone_wc</accessory>
+                        <accessory>xboxone_sh</accessory>
+                        <accessory>xboxone_kg</accessory>
+                        <accessory>xboxone_vb</accessory>
+                        <accessory>xboxone_rs</accessory>
+                        <accessory>xboxone_mp</accessory>
+                        <accessory>xboxone_mc</accessory>
+                    </accessories>
+                </Product>
+                <Product id = "Samsung Phone 2">
+                    <name>Samsung Phone 2</name>
+                    <price>399.99</price>
+                    <image>xbox1.jpg</image>
+                    <manufacturer>Microsoft</manufacturer>
+                    <condition>New</condition>
+                    <discount>10.0</discount>
+                    <accessories>
+                        <accessory>xboxone_wc</accessory>
+                        <accessory>xboxone_sh</accessory>
+                        <accessory>xboxone_kg</accessory>
+                        <accessory>xboxone_vb</accessory>
+                        <accessory>xboxone_rs</accessory>
+                        <accessory>xboxone_mp</accessory>
+                        <accessory>xboxone_mc</accessory>
+                    </accessories>
+                </Product>
+            </SubCategory>
+        </Category>
+        <Category id = "Laptops">
+            <Name>"Laptops"</Name>
+            <SubCategory id = "Apple">
+                <Name>"Apple"</Name>
+                <Product id = "Macbook 1">
+                    <name>Macbook 1</name>
+                    <price>399.99</price>
+                    <image>xbox1.jpg</image>
+                    <manufacturer>Microsoft</manufacturer>
+                    <condition>New</condition>
+                    <discount>10.0</discount>
+                    <accessories>
+                        <accessory>xboxone_wc</accessory>
+                        <accessory>xboxone_sh</accessory>
+                        <accessory>xboxone_kg</accessory>
+                        <accessory>xboxone_vb</accessory>
+                        <accessory>xboxone_rs</accessory>
+                        <accessory>xboxone_mp</accessory>
+                        <accessory>xboxone_mc</accessory>
+                    </accessories>
+                </Product>
+                <Product id = "Macbook 2">
+                    <name>Macbook 2</name>
+                    <price>399.99</price>
+                    <image>xbox1.jpg</image>
+                    <manufacturer>Microsoft</manufacturer>
+                    <condition>New</condition>
+                    <discount>10.0</discount>
+                    <accessories>
+                        <accessory>xboxone_wc</accessory>
+                        <accessory>xboxone_sh</accessory>
+                        <accessory>xboxone_kg</accessory>
+                        <accessory>xboxone_vb</accessory>
+                        <accessory>xboxone_rs</accessory>
+                        <accessory>xboxone_mp</accessory>
+                        <accessory>xboxone_mc</accessory>
+                    </accessories>
+                </Product>
+            </SubCategory>
+            <SubCategory id = "HP">
+                <Name>"HP"</Name>
+                <Product id = "HP laptop 1">
+                    <name>HP laptop 1</name>
+                    <price>399.99</price>
+                    <image>xbox1.jpg</image>
+                    <manufacturer>Microsoft</manufacturer>
+                    <condition>New</condition>
+                    <discount>10.0</discount>
+                    <accessories>
+                        <accessory>xboxone_wc</accessory>
+                        <accessory>xboxone_sh</accessory>
+                        <accessory>xboxone_kg</accessory>
+                        <accessory>xboxone_vb</accessory>
+                        <accessory>xboxone_rs</accessory>
+                        <accessory>xboxone_mp</accessory>
+                        <accessory>xboxone_mc</accessory>
+                    </accessories>
+                </Product>
+                <Product id = "HP laptop 2">
+                    <name>HP laptop 2</name>
+                    <price>399.99</price>
+                    <image>xbox1.jpg</image>
+                    <manufacturer>Microsoft</manufacturer>
+                    <condition>New</condition>
+                    <discount>10.0</discount>
+                    <accessories>
+                        <accessory>xboxone_wc</accessory>
+                        <accessory>xboxone_sh</accessory>
+                        <accessory>xboxone_kg</accessory>
+                        <accessory>xboxone_vb</accessory>
+                        <accessory>xboxone_rs</accessory>
+                        <accessory>xboxone_mp</accessory>
+                        <accessory>xboxone_mc</accessory>
+                    </accessories>
+                </Product>
+            </SubCategory>
+        </Category>
+    </ProductCategory>
+    <AccessoryCatalog>
+        <accessory id="xboxone_wc">
+            <name>Controller</name>
+            <price>89.99</price>
+            <image>XBOX controller.jpg</image>
+            <manufacturer>Microsoft</manufacturer>
+            <condition>New</condition>
+            <discount>40.0</discount>
+        </accessory>
+        <accessory id="xboxone_sh">
+            <name>Turtle Beach Headset</name>
+            <price>89.99</price>
+            <image>Turtle Beach Headset.jpg</image>
+            <manufacturer>Microsoft</manufacturer>
+            <condition>New</condition>
+            <discount>40.0</discount>
+        </accessory>
+        <accessory id="xboxone_vb">
+            <name>joystick</name>
+            <price>89.99</price>
+            <image>joystick.jpg</image>
+            <manufacturer>Microsoft</manufacturer>
+            <condition>New</condition>
+            <discount>40.0</discount>
+        </accessory>
+        <accessory id="xboxone_kg">
+            <name>Keypad</name>
+            <price>89.99</price>
+            <image>keypad.jpg</image>
+            <manufacturer>Microsoft</manufacturer>
+            <condition>New</condition>
+            <discount>40.0</discount>
+        </accessory>
+        <accessory id="xboxone_rs">
+            <name>Starterkit</name>
+            <price>89.99</price>
+            <image>starterkit.jpeg</image>
+            <manufacturer>Microsoft</manufacturer>
+            <condition>New</condition>
+            <discount>40.0</discount>
+        </accessory>
+        <accessory id="xboxone_mp">
+            <name>Wireless adpter</name>
+            <price>89.99</price>
+            <image>wirelessadapter.jpg</image>
+            <manufacturer>Microsoft</manufacturer>
+            <condition>New</condition>
+            <discount>40.0</discount>
+        </accessory>
+        <accessory id="xboxone_mc">
+            <name>Wireless </name>
+            <price>89.99</price>
+            <image>wirelessadapter.jpg</image>
+            <manufacturer>Microsoft</manufacturer>
+            <condition>New</condition>
+            <discount>40.0</discount>
+        </accessory>
+        <accessory id="xbox360_wc">
+            <name>XBOX Speeding Wheel</name>
+            <price>89.99</price>
+            <image>XBOX360-SpeedWheel.jpg</image>
+            <manufacturer>Microsoft</manufacturer>
+            <condition>New</condition>
+            <discount>40.0</discount>
+        </accessory>
+        <accessory id="xbox360_sh">
+            <name>XBOX Wireless Adapter</name>
+            <price>89.99</price>
+            <image>xbox360_wa.png</image>
+            <manufacturer>Microsoft</manufacturer>
+            <condition>New</condition>
+            <discount>40.0</discount>
+        </accessory>
+        <accessory id="xbox360_vb">
+            <name>Remote</name>
+            <price>89.99</price>
+            <image>remote.jpg</image>
+            <manufacturer>Microsoft</manufacturer>
+            <condition>New</condition>
+            <discount>40.0</discount>
+        </accessory>
+        <accessory id="xbox360_rs">
+            <name>messengerkit</name>
+            <price>89.99</price>
+            <image>messengerkit.jpg</image>
+            <manufacturer>Microsoft</manufacturer>
+            <condition>New</condition>
+            <discount>40.0</discount>
+        </accessory>
+        <accessory id="xbox360_mp">
+            <name>Steering</name>
+            <price>89.99</price>
+            <image>steering.jpg</image>
+            <manufacturer>Microsoft</manufacturer>
+            <condition>New</condition>
+            <discount>40.0</discount>
+        </accessory>
+        <accessory id="xbox360_kg">
+            <name>Charger</name>
+            <price>89.99</price>
+            <image>charger.jpg</image>
+            <manufacturer>Microsoft</manufacturer>
+            <condition>New</condition>
+            <discount>40.0</discount>
+        </accessory>
+        <accessory id="ps4_wc">
+            <name>PS Controller</name>
+            <price>89.99</price>
+            <image>XBOX controller.jpg</image>
+            <manufacturer>Sony</manufacturer>
+            <condition>New</condition>
+            <discount>40.0</discount>
+        </accessory>
+        <accessory id="ps3_wc">
+            <name>PS Gaming HeadPhones</name>
+            <price>89.99</price>
+            <image>Turtle Beach Headset.jpg</image>
+            <manufacturer>Sony</manufacturer>
+            <condition>New</condition>
+            <discount>40.0</discount>
+        </accessory>
+        <accessory id="nintendo_wc">
+            <name>Nintendo Controller</name>
+            <price>89.99</price>
+            <image>Wii1.jpg</image>
+            <manufacturer>Nintendo</manufacturer>
+            <condition>New</condition>
+            <discount>40.0</discount>
+        </accessory>
+        <accessory id="nintendo_sh">
+            <name>Nintendo Racing Controller</name>
+            <price>89.99</price>
+            <image>Wii2.jpg</image>
+            <manufacturer>Nintendo</manufacturer>
+            <condition>New</condition>
+            <discount>40.0</discount>
+        </accessory>
+    </AccessoryCatalog>
+</ProductCatalog>

@@ -53,13 +53,13 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 
 		try
 		{
-			// FileInputStream fileInputStream = new FileInputStream(new File(TOMCAT_HOME+"\\webapps\\Assignment_webapp\\PaymentDetails.txt"));
+			FileInputStream fileInputStream = new FileInputStream(new File(TOMCAT_HOME+"/webapps/Assignment_webapp/PaymentDetails.txt"));
 			// ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);	      
 			// orderPayments = (HashMap)objectInputStream.readObject();
 
-			String relativeWebPathForPaymentdetails = "/PaymentDetails.txt";
-  			String absoluteDiskPath = getServletContext().getRealPath(relativeWebPathForPaymentdetails);
-			FileInputStream fileInputStream = new FileInputStream(new File(absoluteDiskPath));
+			// String relativeWebPathForPaymentdetails = "/PaymentDetails.txt";
+  			// String absoluteDiskPath = getServletContext().getRealPath(fileInputStream);
+			// FileInputStream fileInputStream = new FileInputStream(new File(absoluteDiskPath));
 			ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);	      
 			orderPayments = (HashMap)objectInputStream.readObject();
 		}
@@ -81,13 +81,13 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 				//get the order details from file
 				try
 				{
-					// FileInputStream fileInputStream = new FileInputStream(new File(TOMCAT_HOME+"\\webapps\\Assignment_webapp\\PaymentDetails.txt"));
+					FileInputStream fileInputStream = new FileInputStream(new File(TOMCAT_HOME+"/webapps/Assignment_webapp/PaymentDetails.txt"));
 					// ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);	      
 					// orderPayments = (HashMap)objectInputStream.readObject();
 
-					String relativeWebPathForPaymentdetails = "/PaymentDetails.txt";
-  					String absoluteDiskPath = getServletContext().getRealPath(relativeWebPathForPaymentdetails);
-					FileInputStream fileInputStream = new FileInputStream(new File(absoluteDiskPath));
+					// String relativeWebPathForPaymentdetails = "/PaymentDetails.txt";
+  					// String absoluteDiskPath = getServletContext().getRealPath(relativeWebPathForPaymentdetails);
+					// FileInputStream fileInputStream = new FileInputStream(new File(absoluteDiskPath));
 					ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);	      
 					orderPayments = (HashMap)objectInputStream.readObject();
 				}
@@ -150,13 +150,13 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 				try
 				{
 		
-					// FileInputStream fileInputStream = new FileInputStream(new File(TOMCAT_HOME+"\\webapps\\Assignment_webapp\\PaymentDetails.txt"));
+					FileInputStream fileInputStream = new FileInputStream(new File(TOMCAT_HOME+"/webapps/Assignment_webapp/PaymentDetails.txt"));
 					// ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);	      
 					// orderPayments = (HashMap)objectInputStream.readObject();
 
-					String relativeWebPathForPaymentdetails = "/PaymentDetails.txt";
-  					String absoluteDiskPath = getServletContext().getRealPath(relativeWebPathForPaymentdetails);
-					FileInputStream fileInputStream = new FileInputStream(new File(absoluteDiskPath));
+					// String relativeWebPathForPaymentdetails = "/PaymentDetails.txt";
+  					// String absoluteDiskPath = getServletContext().getRealPath(relativeWebPathForPaymentdetails);
+					// FileInputStream fileInputStream = new FileInputStream(new File(absoluteDiskPath));
 					ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);	      
 					orderPayments = (HashMap)objectInputStream.readObject();
 				}
@@ -182,16 +182,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 				//save the updated hashmap with removed order to the file	
 				try
 				{	
-					// FileOutputStream fileOutputStream = new FileOutputStream(new File(TOMCAT_HOME+"\\webapps\\Assignment_webapp\\PaymentDetails.txt"));
-					// ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
-					// objectOutputStream.writeObject(orderPayments);
-					// objectOutputStream.flush();
-					// objectOutputStream.close();       
-					// fileOutputStream.close();
-
-					String relativeWebPathForPaymentdetails = "/PaymentDetails.txt";
-  					String absoluteDiskPath = getServletContext().getRealPath(relativeWebPathForPaymentdetails);
-					FileOutputStream fileOutputStream = new FileOutputStream(new File(absoluteDiskPath));
+					FileOutputStream fileOutputStream = new FileOutputStream(new File(TOMCAT_HOME+"/webapps/Assignment_webapp/PaymentDetails.txt"));
 					ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
 					objectOutputStream.writeObject(orderPayments);
 					objectOutputStream.flush();

@@ -30,7 +30,7 @@ public class Payment extends HttpServlet {
 
 		String userAddress=request.getParameter("userAddress");
 		String creditCardNo=request.getParameter("creditCardNo");
-		System.out.print("the user address is" +userAddress);
+		System.out.print("Payment.java the user address is" +userAddress + "---------------");
 		System.out.print(creditCardNo);
 		if(!userAddress.isEmpty() && !creditCardNo.isEmpty() )
 		{

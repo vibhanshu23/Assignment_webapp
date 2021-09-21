@@ -65,19 +65,30 @@ public class CheckOut extends HttpServlet {
         pw.print("Total Order Cost</td><td>"+orderTotal);
 		pw.print("<input type='hidden' name='orderTotal' value='"+orderTotal+"'>");
 		pw.print("</td></tr></table><table><tr></tr><tr></tr>");	
+
+
 		pw.print("<tr><td>");
      	pw.print("Credit/accountNo</td>");
 		pw.print("<td><input type='text' name='creditCardNo'>");
 		pw.print("</td></tr>");
+
+
 		pw.print("<tr><td>");
 	    pw.print("Customer Address</td>");
 		pw.print("<td><input type='text' name='userAddress'>");
         pw.print("</td></tr>");
-		pw.print("<tr><td colspan='2'>");
-		pw.print("<input type='submit' name='submit' class='btnbuy'>");
+
+
+		pw.print("<tr><td colspan='1'>");
+		pw.print("<input type='submit' name='submit' value='Store Pickup' class='btnbuy'>");
+		pw.print("<tr><td colspan='1'>");
+		pw.print("<input type='submit' name='submit' value='Home Delivery' class='btnbuy'>");
+
+
         pw.print("</td></tr></table></form>");
 		pw.print("</div></div></div>");		
 		utility.printHtml("Footer.html");
+		
 	    }
         catch(Exception e)
 		{

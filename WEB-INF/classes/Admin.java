@@ -11,9 +11,9 @@ import java.util.*;
 import java.io.*;
 import java.sql.*;
 
-@WebServlet("/Account")
+@WebServlet("/Admin")
 
-public class Account extends HttpServlet {
+public class Admin extends HttpServlet {
 	private String error_msg;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -41,19 +41,8 @@ public class Account extends HttpServlet {
 			HttpSession session=request.getSession(); 	
 			utility.printHtml("Header.html");
 			utility.printHtml("LeftNavigationBar.html");
-			pw.print("<div id='content'><div class='post'><h2 class='title meta'>");
-			pw.print("<a style='font-size: 24px;'>Account</a>");
-			pw.print("</h2><div class='entry'>");
-			User user=utility.getUser();
-			pw.print("<table class='gridtable'>");
-			pw.print("<tr>");
-			pw.print("<td> User Name: </td>");
-			pw.print("<td>" +user.getName()+ "</td>");
-			pw.print("</tr>");
-			pw.print("<tr>");
-			pw.print("<td> User Type: </td>");
-			pw.print("<td>" +user.getUsertype()+ "</td>");
-			pw.print("</tr>");
+			
+			
 			HashMap<Integer, ArrayList<OrderPayment>> orderPayments = new HashMap<Integer, ArrayList<OrderPayment>>();
 			String TOMCAT_HOME = System.getProperty("catalina.home");
 			try
@@ -121,16 +110,29 @@ public class Account extends HttpServlet {
 			pw.print("</h2></div></div></div>");	
 			
 			
-			if(user != null){
-				System.out.print("------  User Type" + user.getUsertype() + "------");
-				if(user.getUsertype().equals("retailer")){
-					pw.print("<form method='get' action='Admin'>");
-					pw.print("<tr>");			
-					pw.print("<td><input type='submit' class='btnbuy'></td>");
-					pw.print("</tr>");
-					pw.print("</form>");
-				}
+		if(user != null){
+			System.out.print("------  User Type" + user.getUsertype() + "------");
+			if(user.getUsertype().equals("retailer")){
+				pw.print("<form method='get' action='admin'>");
+				pw.print("<tr>");			
+				pw.print("<td><input type='submit' class='btnbuy'></td>");
+				pw.print("</tr>");
+				pw.print("</form>");
 			}
+			else{
+				System.out.print("------  Loading Header.html" + "------");
+
+				utility.printHtml("Header.html");
+			}
+		}
+		else{
+			System.out.print("------  Loading Header.html outer loop" + "------");
+
+			utility.printHtml("Header.html");
+		}
+
+
+			utility.printHtml("Footer.html");	        	
 		}
 		catch(Exception e)
 		{

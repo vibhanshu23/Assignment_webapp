@@ -31,15 +31,14 @@ public class Utilities extends HttpServlet{
 	PrintWriter pw;
 	String url;
 	HttpSession session; 
+
 	public Utilities(HttpServletRequest req, PrintWriter pw) {
 		this.req = req;
 		this.pw = pw;
 		this.url = this.getFullURL();
 		this.session = req.getSession(true);
 	}
-
-
-
+	
 	/*  Printhtml Function gets the html file name as function Argument, 
 		If the html file name is Header.html then It gets Username from session variables.
 		Account ,Cart Information ang Logout Options are Displayed*/
@@ -144,15 +143,16 @@ public class Utilities extends HttpServlet{
 		String TOMCAT_HOME = System.getProperty("catalina.home");
 			try
 			{		
-				// FileInputStream fileInputStream=new FileInputStream(new File(TOMCAT_HOME+"\\webapps\\Assignment_webapp\\UserDetails.txt"));
+				FileInputStream fileInputStream=new FileInputStream(new File(TOMCAT_HOME+"/webapps/Assignment_webapp/UserDetails.txt"));
 				// ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);	      
 				// hm= (HashMap)objectInputStream.readObject();
 
-				String relativeWebPathForUserdetails = "/UserDetails.txt";
-  				String absoluteDiskPath = getServletContext().getRealPath(relativeWebPathForUserdetails);
-				FileInputStream fileInputStream=new FileInputStream(new File(absoluteDiskPath));
+				// String relativeWebPathForUserdetails = "/UserDetails.txt";
+  				// String absoluteDiskPath = getServletContext().getRealPath(fileInputStream);
+				// FileInputStream fileInputStream=new FileInputStream(new File(absoluteDiskPath));
 				ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);	      
 				hm= (HashMap)objectInputStream.readObject();
+				System.out.print("---- Utilities.java User hashmap" + hm + "-------------");
 			}
 			catch(Exception e)
 			{
@@ -175,13 +175,13 @@ public class Utilities extends HttpServlet{
 		String TOMCAT_HOME = System.getProperty("catalina.home");
 			try
 			{
-				// FileInputStream fileInputStream = new FileInputStream(new File(TOMCAT_HOME+"\\webapps\\Assignment_webapp\\PaymentDetails.txt"));
+				FileInputStream fileInputStream = new FileInputStream(new File(TOMCAT_HOME+"/webapps/Assignment_webapp/PaymentDetails.txt"));
 				// ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);	      
 				// orderPayments = (HashMap)objectInputStream.readObject();
 
-				String relativeWebPathForPaymentdetails = "/PaymentDetails.txt";
-  				String absoluteDiskPath = getServletContext().getRealPath(relativeWebPathForPaymentdetails);
-				FileInputStream fileInputStream = new FileInputStream(new File(absoluteDiskPath));
+				// String relativeWebPathForPaymentdetails = "/PaymentDetails.txt";
+  				// String absoluteDiskPath = getServletContext().getRealPath(fileInputStream);
+				// FileInputStream fileInputStream = new FileInputStream(new File(absoluteDiskPath));
 				ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);	      
 				orderPayments = (HashMap)objectInputStream.readObject();	
 			}
@@ -245,19 +245,21 @@ public class Utilities extends HttpServlet{
 			// get the payment details file 
 			try
 			{
-				// FileInputStream fileInputStream = new FileInputStream(new File(TOMCAT_HOME+"\\webapps\\Assignment_webapp\\PaymentDetails.txt"));
+				FileInputStream fileInputStream = new FileInputStream(new File(TOMCAT_HOME+"/webapps/Assignment_webapp/PaymentDetails.txt"));
 				// ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);	      
 				// orderPayments = (HashMap)objectInputStream.readObject();
-
-				String relativeWebPathForPaymentdetails = "/PaymentDetails.txt";
-  				String absoluteDiskPath = getServletContext().getRealPath(relativeWebPathForPaymentdetails);
-				FileInputStream fileInputStream = new FileInputStream(new File(absoluteDiskPath));
+				System.out.println("VIB ----- PATHH ----- " + this.url);
+				// String relativeWebPathForPaymentdetails = "/PaymentDetails.txt";
+  				// String absoluteDiskPath = super.getServletContext().getRealPath(relativeWebPathForPaymentdetails);
+				//   System.out.println("VIB ----- PATHH ----- " + absoluteDiskPath);
+				// FileInputStream fileInputStream = new FileInputStream(new File(this.url+"/PaymentDetails.txt"));
 				ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);	      
 				orderPayments = (HashMap)objectInputStream.readObject();
 			}
 			catch(Exception e)
 			{
-			
+				System.out.println("VIB ---- inside exception file not written properly /n ------ " + e);
+				e.printStackTrace();
 			}
 			if(orderPayments==null)
 			{
@@ -277,21 +279,22 @@ public class Utilities extends HttpServlet{
 
 			try
 			{	
-				// FileOutputStream fileOutputStream = new FileOutputStream(new File(TOMCAT_HOME+"\\webapps\\Assignment_webapp\\PaymentDetails.txt"));
+				FileOutputStream fileOutputStream = new FileOutputStream(new File(TOMCAT_HOME+"/webapps/Assignment_webapp/PaymentDetails.txt"));
 				// ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
             	// objectOutputStream.writeObject(orderPayments);
 				// objectOutputStream.flush();
 				// objectOutputStream.close();       
 				// fileOutputStream.close();
 
-				String relativeWebPathForPaymentdetails = "/PaymentDetails.txt";
-  				String absoluteDiskPath = getServletContext().getRealPath(relativeWebPathForPaymentdetails);
-				FileOutputStream fileOutputStream = new FileOutputStream(new File(absoluteDiskPath));
+				// String relativeWebPathForPaymentdetails = "/PaymentDetails.txt";
+  				// String absoluteDiskPath = super.getServletContext().getRealPath(relativeWebPathForPaymentdetails);
+				// FileOutputStream fileOutputStream = new FileOutputStream(new File(this.url+"/PaymentDetails.txt"));
 				ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
             	objectOutputStream.writeObject(orderPayments);
 				objectOutputStream.flush();
 				objectOutputStream.close();       
 				fileOutputStream.close();
+				
 			}
 			catch(Exception e)
 			{

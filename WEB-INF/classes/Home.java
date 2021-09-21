@@ -6,6 +6,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import java.util.*;
+import java.io.*;
+import java.sql.*;
+
 @WebServlet("/Home")
 
 /* 
@@ -24,7 +28,6 @@ public class Home extends HttpServlet {
 		utility.printHtml("LeftNavigationBar.html");
 		utility.printHtml("Content.html");
 		utility.printHtml("Footer.html");
-				
 	}
 
 }

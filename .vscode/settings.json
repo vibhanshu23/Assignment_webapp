@@ -2,5 +2,8 @@
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
         "/Users/vibhanshujain/Documents/apache-tomcat-9.0.52/lib/servlet-api.jar"
-    ]
+    ],
+    "files.exclude": {
+        "**/.class": true
+    }
 }

@@ -81,8 +81,6 @@ public class TabletList extends HttpServlet {
 		pw.print("</h2><div class='entry'><table id='bestseller'>");
 		int i = 1;
 		int size = hm.size();
-		log("value of the table");
-		log(name);
 		System.out.println("Debugging message");
 		
 		for (Map.Entry<String, Tablet> entry : hm.entrySet()) {

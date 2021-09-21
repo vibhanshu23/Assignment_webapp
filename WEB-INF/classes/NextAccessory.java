@@ -129,7 +129,7 @@ public class NextAccessory extends HttpServlet {
 			arr.add(acc.getValue());
 		}	
 		
-		System.out.println("vishal");
+		// System.out.println("vishal");
 		pw.print("<td><li><form method='post' action='PrevAccessory'>" +
 					"<input type='hidden' name='name' value='"+arr+"'>"+
 					"<input type='hidden' name='value' value='"+j+"'>"+

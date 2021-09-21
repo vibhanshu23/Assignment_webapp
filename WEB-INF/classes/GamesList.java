@@ -88,17 +88,20 @@ public class GamesList extends HttpServlet {
 			pw.print("<h3>"+game.getName()+"</h3>");
 			pw.print("<strong>"+ "$" + game.getPrice() + "</strong><ul>");
 			pw.print("<li id='item'><img src='images/games/"+game.getImage()+"' alt='' /></li>");
+
 			pw.print("<li><form method='post' action='Cart'>" +
 					"<input type='hidden' name='name' value='"+entry.getKey()+"'>"+
 					"<input type='hidden' name='type' value='games'>"+
 					"<input type='hidden' name='maker' value='"+CategoryName+"'>"+
 					"<input type='hidden' name='access' value=''>"+
 					"<input type='submit' class='btnbuy' value='Buy Now'></form></li>");
+
 			pw.print("<li><form method='post' action='WriteReview'>"+"<input type='hidden' name='name' value='"+entry.getKey()+"'>"+
 					"<input type='hidden' name='type' value='games'>"+
 					"<input type='hidden' name='maker' value='"+CategoryName+"'>"+
 					"<input type='hidden' name='access' value=''>"+
 				    "<input type='submit' value='WriteReview' class='btnreview'></form></li>");
+					
 			pw.print("<li><form method='post' action='ViewReview'>"+"<input type='hidden' name='name' value='"+entry.getKey()+"'>"+
 					"<input type='hidden' name='type' value='games'>"+
 					"<input type='hidden' name='maker' value='"+CategoryName+"'>"+

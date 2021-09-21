@@ -17,6 +17,6 @@ public class OrdersHashMap extends HttpServlet{
 	public static HashMap<String, ArrayList<OrderItem>> orders = new HashMap<String, ArrayList<OrderItem>>();
 	
 	public OrdersHashMap() {
-		
+		System.out.print("Order HashMap class called ------------");
 	}	
 }
