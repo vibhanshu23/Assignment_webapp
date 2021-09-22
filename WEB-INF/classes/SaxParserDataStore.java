@@ -19,7 +19,7 @@ import org.xml.sax.InputSource;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.*;
-import java.io.StringReader;
+import java.io.*;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
@@ -58,22 +58,149 @@ public class SaxParserDataStore extends DefaultHandler {
 	String elementValueRead;
 	String currentElement = "";
 
-	public SaxParserDataStore()
-	{
-	}
-	public SaxParserDataStore(String consoleXmlFileName) {
-		this.consoleXmlFileName = consoleXmlFileName;
-		consoles = new HashMap<String, Console>();
-		games = new HashMap<String, Game>();
-		tablets = new HashMap<String, Tablet>();
-		accessories = new HashMap<String, Accessory>();
-		accessoryHashMap = new HashMap<String, String>();
-		parseDocument();
-		System.out.print("------------- Printing Consoles Hasmap");
-		System.out.println(consoles + "---------------");
+	public SaxParserDataStore() {
 	}
 
+	public SaxParserDataStore(String consoleXmlFileName) {
+
+		if(!funcIsDiskHashmapFound()){
+			this.consoleXmlFileName = consoleXmlFileName;
+			consoles = new HashMap<String, Console>();
+			games = new HashMap<String, Game>();
+			tablets = new HashMap<String, Tablet>();
+			accessories = new HashMap<String, Accessory>();
+			accessoryHashMap = new HashMap<String, String>();
+			parseDocument();
+			funcStoreCurentHashmaptoDisk();
+			System.out.print("------------- Printing Consoles Hasmap");
+			System.out.println(consoles + "---------------");
+		}
+		
+	}
+	public Boolean funcIsDiskHashmapFound() {
+
+		String TOMCAT_HOME = System.getProperty("catalina.home");
+		File tempFile = new File(TOMCAT_HOME + "/webapps/Assignment_webapp/ProductHashMapA.txt");
+		boolean exists = tempFile.exists();
+
+		if (!exists) {
+			return exists;
+		}
+
+
+		Boolean fileFound = false;
+
+		HashMap<String, Console> ProductHashMapA = new HashMap<String, Console>();
+		try {
+			FileInputStream fileInputStream = new FileInputStream(
+					new File(TOMCAT_HOME + "/webapps/Assignment_webapp/ProductHashMapA.txt"));
+			ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+			ProductHashMapA = (HashMap) objectInputStream.readObject();
+			consoles = ProductHashMapA;
+			fileFound = true;
+		} catch (Exception e) {
+			System.out.println("exceptionnnnnnnn SaxParser reading hashmap" + ProductHashMapA + "from disk");
+
+		}
+
+		HashMap<String, Game> ProductHashMapB = new HashMap<String, Game>();
+		try {
+			FileInputStream fileInputStream = new FileInputStream(
+					new File(TOMCAT_HOME + "/webapps/Assignment_webapp/ProductHashMapB.txt"));
+			ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+			ProductHashMapB = (HashMap) objectInputStream.readObject();
+			games = ProductHashMapB;
+			fileFound = true;
+
+		} catch (Exception e) {
+			System.out.println("exceptionnnnnnnn SaxParser reading hashmap" + ProductHashMapB + "from disk");
+
+		}
+		HashMap<String, Tablet> ProductHashMapC = new HashMap<String, Tablet>();
+		try {
+			FileInputStream fileInputStream = new FileInputStream(
+					new File(TOMCAT_HOME + "/webapps/Assignment_webapp/ProductHashMapC.txt"));
+			ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+			ProductHashMapC = (HashMap) objectInputStream.readObject();
+			tablets = ProductHashMapC;
+			fileFound = true;
+
+		} catch (Exception e) {
+			System.out.println("exceptionnnnnnnn SaxParser reading hashmap" + ProductHashMapC + "from disk");
+
+		}
+		HashMap<String, Accessory> ProductHashMapD = new HashMap<String, Accessory>();
+		try {
+			FileInputStream fileInputStream = new FileInputStream(
+					new File(TOMCAT_HOME + "/webapps/Assignment_webapp/ProductHashMapD.txt"));
+			ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+			ProductHashMapD = (HashMap) objectInputStream.readObject();
+			accessories = ProductHashMapD;
+			fileFound = true;
+
+		} catch (Exception e) {
+			System.out.println("exceptionnnnnnnn SaxParser reading hashmap" + ProductHashMapD + "from disk");
+
+		}
+		
+		HashMap<String, String> ProductHashMapE = new HashMap<String, String>();
+		try {
+			FileInputStream fileInputStream = new FileInputStream(
+					new File(TOMCAT_HOME + "/webapps/Assignment_webapp/ProductHashMapE.txt"));
+			ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+			ProductHashMapE = (HashMap) objectInputStream.readObject();
+			accessoryHashMap = ProductHashMapE;
+			fileFound = true;
+
+		} catch (Exception e) {
+			System.out.println("exceptionnnnnnnn SaxParser reading hashmap" + ProductHashMapE + "from disk");
+
+		}
+
+		// HashMap<String, VOICEASSISTANT> ProductHashMapE = new HashMap<String, VOICEASSISTANT>();
+		// try {
+		// 	FileInputStream fileInputStream = new FileInputStream(
+		// 			new File(TOMCAT_HOME + "/webapps/Assignment_webapp/ProductHashMapF.txt"));
+		// 	ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+		// 	ProductHashMapF = (HashMap) objectInputStream.readObject();
+		// 	VOICEASSISTANT = ProductHashMapF;
+		// fileFound = true;
+
+		// } catch (Exception e) {
+		// 	System.out.println("exceptionnnnnnnn SaxParser reading hashmap" + ProductHashMapF + "from disk");
+
+		// }
+		System.out.println("Could load hashmap from disk"+fileFound);
+		return fileFound;
+	}
+
+
+	public void funcStoreCurentHashmaptoDisk() {
+		String TOMCAT_HOME = System.getProperty("catalina.home");
+
+		funcStoreProductHashmapToDisk(consoles, (TOMCAT_HOME + "/webapps/Assignment_webapp/ProductHashMapA.txt"));
+		funcStoreProductHashmapToDisk(games, (TOMCAT_HOME + "/webapps/Assignment_webapp/ProductHashMapB.txt"));
+		funcStoreProductHashmapToDisk(tablets, (TOMCAT_HOME + "/webapps/Assignment_webapp/ProductHashMapC.txt"));
+		funcStoreProductHashmapToDisk(accessories, (TOMCAT_HOME + "/webapps/Assignment_webapp/ProductHashMapD.txt"));
+		funcStoreProductHashmapToDisk(accessoryHashMap, (TOMCAT_HOME + "/webapps/Assignment_webapp/ProductHashMapE.txt"));
+		// funcStoreProductHashmapToDisk(VOICEASSISTANT, (TOMCAT_HOME + "/webapps/Assignment_webapp/ProductHashMapF.txt"));
+	}
+
+	public void funcStoreProductHashmapToDisk(HashMap hm,String path) {
+		try {
+			FileOutputStream fileOutputStream = new FileOutputStream(path);
+			ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+			objectOutputStream.writeObject(hm);
+			objectOutputStream.flush();
+			objectOutputStream.close();
+			fileOutputStream.close();
+		} catch (Exception e) {
+			System.out.println("exceptionnnnnnnn SaxParser storing hashmap" + hm + "at path" + path);
+		}
+
+	}
 	// parse the xml using sax parser to get the data
+
 	private void parseDocument() {
 		SAXParserFactory factory = SAXParserFactory.newInstance();
 		try {

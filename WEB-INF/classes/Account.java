@@ -123,7 +123,7 @@ public class Account extends HttpServlet {
 			
 			if(user != null){
 				System.out.print("------  User Type" + user.getUsertype() + "------");
-				if(user.getUsertype().equals("retailer")){
+				if(user.getUsertype().equals("retailer")){ //store manager //roles
 					pw.print("<form method='get' action='Admin'>");
 					pw.print("<tr>");			
 					pw.print("<td><input type='submit' class='btnbuy'></td>");
