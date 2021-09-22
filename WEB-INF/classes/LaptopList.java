@@ -8,9 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/TabletList")
+@WebServlet("/LaptopList")
 
-public class TabletList extends HttpServlet {
+public class LaptopList extends HttpServlet {
 
 	/* Trending Page Displays all the Tablets and their Information in Game Speed */
 
@@ -32,7 +32,7 @@ public class TabletList extends HttpServlet {
 		} 
 		else 
 		{
-			if(CategoryName.equals("apple")) 
+			if(CategoryName.equals("Apple")) 
 			{	
 				for(Map.Entry<String,Tablet> entry : SaxParserDataStore.tablets.entrySet())
 				{
@@ -43,28 +43,28 @@ public class TabletList extends HttpServlet {
 				}
 				name ="Apple";
 			} 
-			else if (CategoryName.equals("microsoft"))
+			else if (CategoryName.equals("HP"))
 			{
 				for(Map.Entry<String,Tablet> entry : SaxParserDataStore.tablets.entrySet())
 				{
-				  if(entry.getValue().getRetailer().equals("Microsoft"))
+				  if(entry.getValue().getRetailer().equals("HP"))
 				  {
 					 hm.put(entry.getValue().getId(),entry.getValue());
 				  }
 				}
-				name = "Microsoft";
+				name = "HP";
 			} 
-			else if (CategoryName.equals("samsung")) 
-			{
-				for(Map.Entry<String,Tablet> entry : SaxParserDataStore.tablets.entrySet())
-				{
-				  if(entry.getValue().getRetailer().equals("Samsung"))
-				 {
-					 hm.put(entry.getValue().getId(),entry.getValue());
-				 }
-				}	
-				name = "Samsung";
-			}
+			// else if (CategoryName.equals("samsung")) 
+			// {
+			// 	for(Map.Entry<String,Tablet> entry : SaxParserDataStore.tablets.entrySet())
+			// 	{
+			// 	  if(entry.getValue().getRetailer().equals("Samsung"))
+			// 	 {
+			// 		 hm.put(entry.getValue().getId(),entry.getValue());
+			// 	 }
+			// 	}	
+			// 	name = "Samsung";
+			// }
 	    }
 
 		/* Header, Left Navigation Bar are Printed.
@@ -77,11 +77,11 @@ public class TabletList extends HttpServlet {
 		utility.printHtml("Header.html");
 		utility.printHtml("LeftNavigationBar.html");
 		pw.print("<div id='content'><div class='post'><h2 class='title meta'>");
-		pw.print("<a style='font-size: 24px;'>" + name + " Tablets</a>");
+		pw.print("<a style='font-size: 24px;'>" + name + " Laptop</a>");
 		pw.print("</h2><div class='entry'><table id='bestseller'>");
 		int i = 1;
 		int size = hm.size();
-		System.out.println("Debugging message");
+		// System.out.println("Debugging message");
 		
 		for (Map.Entry<String, Tablet> entry : hm.entrySet()) {
 			Tablet Tablet = entry.getValue();

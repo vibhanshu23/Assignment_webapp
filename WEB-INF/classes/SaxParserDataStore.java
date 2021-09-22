@@ -116,22 +116,22 @@ public class SaxParserDataStore extends DefaultHandler {
 	@Override
 	public void startElement(String str1, String str2, String elementName, Attributes attributes) throws SAXException {
 
-		if (elementName.equalsIgnoreCase("console")) {
-			currentElement = "console";
+		if (elementName.equalsIgnoreCase("product")) {
+			currentElement = "product";
 			console = new Console();
 			console.setId(attributes.getValue("id"));
 		}
-		if (elementName.equalsIgnoreCase("tablet")) {
-			currentElement = "tablet";
+		if (elementName.equalsIgnoreCase("Laptop")) {
+			currentElement = "Laptop";
 			tablet = new Tablet();
 			tablet.setId(attributes.getValue("id"));
 		}
-		if (elementName.equalsIgnoreCase("game")) {
-			currentElement = "game";
+		if (elementName.equalsIgnoreCase("Phone")) {
+			currentElement = "Phone";
 			game = new Game();
 			game.setId(attributes.getValue("id"));
 		}
-		if (elementName.equals("accessory") && !currentElement.equals("console")) {
+		if (elementName.equals("accessory") && !currentElement.equals("product")) {
 			currentElement = "accessory";
 			accessory = new Accessory();
 			accessory.setId(attributes.getValue("id"));
@@ -144,16 +144,16 @@ public class SaxParserDataStore extends DefaultHandler {
 	@Override
 	public void endElement(String str1, String str2, String element) throws SAXException {
 
-		if (element.equals("console")) {
+		if (element.equals("product")) {
 			consoles.put(console.getId(), console);
 			return;
 		}
 
-		if (element.equals("tablet")) {
+		if (element.equals("Laptop")) {
 			tablets.put(tablet.getId(), tablet);
 			return;
 		}
-		if (element.equals("game")) {
+		if (element.equals("Phone")) {
 			games.put(game.getId(), game);
 			return;
 		}
@@ -161,20 +161,20 @@ public class SaxParserDataStore extends DefaultHandler {
 			accessories.put(accessory.getId(), accessory);
 			return;
 		}
-		if (element.equals("accessory") && currentElement.equals("console")) {
+		if (element.equals("accessory") && currentElement.equals("product")) {
 			accessoryHashMap.put(elementValueRead, elementValueRead);
 		}
-		if (element.equalsIgnoreCase("accessories") && currentElement.equals("console")) {
+		if (element.equalsIgnoreCase("accessories") && currentElement.equals("product")) {
 			console.setAccessories(accessoryHashMap);
 			accessoryHashMap = new HashMap<String, String>();
 			return;
 		}
 		if (element.equalsIgnoreCase("image")) {
-			if (currentElement.equals("console"))
+			if (currentElement.equals("product"))
 				console.setImage(elementValueRead);
-			if (currentElement.equals("game"))
+			if (currentElement.equals("Phone"))
 				game.setImage(elementValueRead);
-			if (currentElement.equals("tablet"))
+			if (currentElement.equals("Laptop"))
 				tablet.setImage(elementValueRead);
 			if (currentElement.equals("accessory"))
 				accessory.setImage(elementValueRead);
@@ -182,11 +182,11 @@ public class SaxParserDataStore extends DefaultHandler {
 		}
 
 		if (element.equalsIgnoreCase("discount")) {
-			if (currentElement.equals("console"))
+			if (currentElement.equals("product"))
 				console.setDiscount(Double.parseDouble(elementValueRead));
-			if (currentElement.equals("game"))
+			if (currentElement.equals("Phone"))
 				game.setDiscount(Double.parseDouble(elementValueRead));
-			if (currentElement.equals("tablet"))
+			if (currentElement.equals("Laptop"))
 				tablet.setDiscount(Double.parseDouble(elementValueRead));
 			if (currentElement.equals("accessory"))
 				accessory.setDiscount(Double.parseDouble(elementValueRead));
@@ -194,11 +194,11 @@ public class SaxParserDataStore extends DefaultHandler {
 		}
 
 		if (element.equalsIgnoreCase("condition")) {
-			if (currentElement.equals("console"))
+			if (currentElement.equals("product"))
 				console.setCondition(elementValueRead);
-			if (currentElement.equals("game"))
+			if (currentElement.equals("Phone"))
 				game.setCondition(elementValueRead);
-			if (currentElement.equals("tablet"))
+			if (currentElement.equals("Laptop"))
 				tablet.setCondition(elementValueRead);
 			if (currentElement.equals("accessory"))
 				accessory.setCondition(elementValueRead);
@@ -206,11 +206,11 @@ public class SaxParserDataStore extends DefaultHandler {
 		}
 
 		if (element.equalsIgnoreCase("manufacturer")) {
-			if (currentElement.equals("console"))
+			if (currentElement.equals("product"))
 				console.setRetailer(elementValueRead);
-			if (currentElement.equals("game"))
+			if (currentElement.equals("Phone"))
 				game.setRetailer(elementValueRead);
-			if (currentElement.equals("tablet"))
+			if (currentElement.equals("Laptop"))
 				tablet.setRetailer(elementValueRead);
 			if (currentElement.equals("accessory"))
 				accessory.setRetailer(elementValueRead);
@@ -218,11 +218,11 @@ public class SaxParserDataStore extends DefaultHandler {
 		}
 
 		if (element.equalsIgnoreCase("name")) {
-			if (currentElement.equals("console"))
+			if (currentElement.equals("product"))
 				console.setName(elementValueRead);
-			if (currentElement.equals("game"))
+			if (currentElement.equals("Phone"))
 				game.setName(elementValueRead);
-			if (currentElement.equals("tablet"))
+			if (currentElement.equals("Laptop"))
 				tablet.setName(elementValueRead);
 			if (currentElement.equals("accessory"))
 				accessory.setName(elementValueRead);
@@ -230,11 +230,11 @@ public class SaxParserDataStore extends DefaultHandler {
 		}
 
 		if (element.equalsIgnoreCase("price")) {
-			if (currentElement.equals("console"))
+			if (currentElement.equals("product"))
 				console.setPrice(Double.parseDouble(elementValueRead));
-			if (currentElement.equals("game"))
+			if (currentElement.equals("Phone"))
 				game.setPrice(Double.parseDouble(elementValueRead));
-			if (currentElement.equals("tablet"))
+			if (currentElement.equals("Laptop"))
 				tablet.setPrice(Double.parseDouble(elementValueRead));
 			if (currentElement.equals("accessory"))
 				accessory.setPrice(Double.parseDouble(elementValueRead));

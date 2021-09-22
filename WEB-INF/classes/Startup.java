@@ -14,7 +14,7 @@ public class Startup extends HttpServlet
 
 	public void init() throws ServletException
     {
-      String relativeWebPathForProductDetails = "/ProductCatalog.xml";
+      String relativeWebPathForProductDetails = "/ProductCatalogNew.xml";
   	  String absoluteDiskPath = getServletContext().getRealPath(relativeWebPathForProductDetails);
       SaxParserDataStore.addHashmap(absoluteDiskPath);
 

@@ -28,6 +28,8 @@ public class Admin extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
 		Utilities utility = new Utilities(request, pw);
+		User user=utility.getUser();
+
 		try
          {  
            response.setContentType("text/html");
