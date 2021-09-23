@@ -264,30 +264,16 @@ public class Utilities extends HttpServlet{
 		}
 
 		ArrayList<OrderItem> orderItems = OrdersHashMap.orders.get(username());
-		if(type.equals("consoles")){
-			Console console;
-			console = SaxParserDataStore.consoles.get(name);
-			OrderItem orderitem = new OrderItem(console.getName(), console.getPrice(), console.getImage(), console.getRetailer());
-			orderItems.add(orderitem);
+		OrderItem oi2 = null;
+		for (OrderItem oi : orderItems){
+			if(oi.getName().equals(name) && oi.getRetailer().equals(maker)){
+			oi2 = oi;			}
 		}
-		if(type.equals("games")){
-			Game game = null;
-			game = SaxParserDataStore.games.get(name);
-			OrderItem orderitem = new OrderItem(game.getName(), game.getPrice(), game.getImage(), game.getRetailer());
-			orderItems.add(orderitem);
+		if(oi2 != null){
+			orderItems.remove(oi2);
 		}
-		if(type.equals("tablets")){
-			Tablet tablet = null;
-			tablet = SaxParserDataStore.tablets.get(name);
-			OrderItem orderitem = new OrderItem(tablet.getName(), tablet.getPrice(), tablet.getImage(), tablet.getRetailer());
-			orderItems.add(orderitem);
-		}
-		if(type.equals("accessories")){	
-			Accessory accessory = SaxParserDataStore.accessories.get(name); 
-			OrderItem orderitem = new OrderItem(accessory.getName(), accessory.getPrice(), accessory.getImage(), accessory.getRetailer());
-			orderItems.add(orderitem);
-		}
-		//VOICEASSISTANT
+		// OrderItem orderitem = new OrderItem(name,type , accessory.getImage(), accessory.getRetailer());
+		// orderItems.remove(orderitem);
 		
 	}
 

@@ -126,7 +126,14 @@ public class Account extends HttpServlet {
 				if(user.getUsertype().equals("retailer")){ //store manager //roles
 					pw.print("<form method='get' action='Admin'>");
 					pw.print("<tr>");			
-					pw.print("<td><input type='submit' class='btnbuy'></td>");
+					pw.print("<td><input type='submit' name='Admin' value='Admin' class='btnbuy'></td>");
+					pw.print("</tr>");
+					pw.print("</form>");
+				}
+				if(user.getUsertype().equals("manager")){ // SalesManager //roles
+					pw.print("<form method='get' action='Registration'>");
+					pw.print("<tr>");			
+					pw.print("<td><input type='submit' name='Register Customer' value='Register Customer' class='btnbuy'></td>");
 					pw.print("</tr>");
 					pw.print("</form>");
 				}

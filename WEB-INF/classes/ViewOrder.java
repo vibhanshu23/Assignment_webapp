@@ -39,13 +39,14 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		then user will get textbox to give order number by which he can view order 
 		if order button is clicked user will be directed to this same servlet and user has given order number 
 		then this page shows all the order details*/
-	
-		if(request.getParameter("Order")==null)
+		User user=utility.getUser();
+
+		if(request.getParameter("Order")==null && !user.getUsertype().equals("manager"))
 		{
 			pw.print("<table align='center'><tr><td>Enter OrderNo &nbsp&nbsp<input name='orderId' type='text'></td>");
 			pw.print("<td><input type='submit' name='Order' value='ViewOrder' class='btnbuy'></td></tr></table>");
 		}
-
+		
 		//hashmap gets all the order details from file 
 
 		HashMap<Integer, ArrayList<OrderPayment>> orderPayments = new HashMap<Integer, ArrayList<OrderPayment>>();

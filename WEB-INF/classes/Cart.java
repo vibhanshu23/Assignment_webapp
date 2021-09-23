@@ -18,15 +18,32 @@ public class Cart extends HttpServlet {
 		PrintWriter pw = response.getWriter();
 		String warranty = request.getParameter("AskWarraanty");
 		System.out.println("warranty" + warranty);
+		Utilities utility = new Utilities(request, pw);
+
 		try {
-			
+			System.out.println(" VALUE OF ORDER TO BE REMOVED OR NULL  " + request.getParameter("Order"));
+
+			if(request.getParameter("Order")!=null && request.getParameter("Order").equals("removeItem")){
+				String name = request.getParameter("orderName");
+				String type = request.getParameter("type");
+				String maker = request.getParameter("Retailer");
+				String access = request.getParameter("access");
+				System.out.println(" VALUE OF ORDER TO BE REMOVED OR NULL  " + request.getParameter("Order") + name+type+maker+access);
+
+				utility.removeProductFromCart(name, type, maker, access);
+
+				displayCart(request, response);
+
+				return;
+			}
+	
+	
 			if((warranty != null && warranty.equals("NO"))){
 				
 				displayCart(request, response);
 				return;
 			}
 			if((warranty == null || !warranty.equals("YES"))){
-				Utilities utility = new Utilities(request, pw);
 				String name = request.getParameter("name");
 				String type = request.getParameter("type");
 				String maker = request.getParameter("maker");
@@ -40,6 +57,7 @@ public class Cart extends HttpServlet {
 				System.out.println("CART added name   " + name + "   type   " + type + "   maker   " + maker + "   accesee   " + access);
 
 				/* StoreProduct Function stores the Purchased product in Orders HashMap.*/	
+				System.out.println("CART added name   " + name + "   type   " + type + "   maker   " + maker + "   accesee   " + access);
 
 			utility.storeProduct(name, type, maker, access);
 
@@ -48,10 +66,9 @@ public class Cart extends HttpServlet {
 			}
 			
 		} catch (Exception e) {
-			System.out.println("CART exception");
+			System.out.println("CART exception"+e.getMessage() + "--------" +e.getLocalizedMessage());
 			//TODO: handle exception
 		}
-		Utilities utility = new Utilities(request, pw);
 				String name = request.getParameter("name");
 				String type = request.getParameter("type");
 				String maker = request.getParameter("maker");
@@ -67,6 +84,7 @@ public class Cart extends HttpServlet {
 				/* StoreProduct Function stores the Purchased product in Orders HashMap.*/	
 
 			utility.storeProduct(name, type, maker, access);
+			System.out.println("CART added name   " + name + "   type   " + type + "   maker   " + maker + "   accesee   " + access);
 
 		displayCart(request, response);
 		
@@ -107,7 +125,7 @@ public class Cart extends HttpServlet {
 		pw.print("<form method='post' action='Cart'>");
 		pw.print("<tr>");			
 		pw.print("<td><input type='submit' value='YES' class='btnbuy'></td>");
-		pw.print("<input type='hidden' name='AskWarraanty' value='YES'><input type='hidden' name='name' value='Warranty'><input type='hidden' name='type' value='consoles'>");
+		pw.print("<input type='hidden' name='AskWarraanty' value='YES'><input type='hidden' name='maker' value='Warranty'><input type='hidden' name='name' value='Warranty'><input type='hidden' name='type' value='consoles'>");
 		pw.print("</tr>");
 		pw.print("</form>");
 
@@ -140,7 +158,6 @@ public class Cart extends HttpServlet {
 		pw.print("<div id='content'><div class='post'><h2 class='title meta'>");
 		pw.print("<a style='font-size: 24px;'>Cart("+utility.CartCount()+")</a>");
 		pw.print("</h2><div class='entry'>");
-		pw.print("<form name ='Cart' action='CheckOut' method='post'>");
 		if(utility.CartCount()>0)
 		{
 			pw.print("<table  class='gridtable'>");
@@ -148,14 +165,24 @@ public class Cart extends HttpServlet {
 			double total = 0;
 			for (OrderItem oi : utility.getCustomerOrders()) 
 			{
+				pw.print("<form name ='Cart' action='Cart' method='post'>");
+
 				pw.print("<tr>");
 				pw.print("<td>"+i+".</td><td>"+oi.getName()+"</td><td>: "+oi.getPrice()+"</td>");
 				pw.print("<input type='hidden' name='orderName' value='"+oi.getName()+"'>");
+				pw.print("<input type='hidden' name='Retailer' value='"+oi.getRetailer()+"'>");
 				pw.print("<input type='hidden' name='orderPrice' value='"+oi.getPrice()+"'>");
+				pw.print("<input type='hidden' name='name' value='"+oi.getName()+"'>");
+				// <input type='hidden' name='AskWarraanty' value='YES'><input type='hidden' name='name' value='Warranty'><input type='hidden' name='type' value='consoles'>
+				pw.print("<td><input type='submit' name='Order' value='removeItem' class='btnbuy'></td>");
 				pw.print("</tr>");
+				pw.print("</form>");
 				total = total +oi.getPrice();
 				i++;
+
 			}
+			pw.print("<form name ='Cart' action='CheckOut' method='post'>");
+
 			pw.print("<input type='hidden' name='orderTotal' value='"+total+"'>");	
 			pw.print("<tr><th></th><th>Total</th><th>"+total+"</th>");
 			pw.print("<tr><td></td><td></td><td><input type='submit' name='CheckOut' value='CheckOut' class='btnbuy' /></td>");
@@ -178,5 +205,7 @@ public class Cart extends HttpServlet {
 		Utilities utility = new Utilities(request, pw);
 		
 		displayCart(request, response);
+
+
 	}
 }
