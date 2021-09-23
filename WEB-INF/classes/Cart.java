@@ -16,27 +16,114 @@ public class Cart extends HttpServlet {
 		
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
+		String warranty = request.getParameter("AskWarraanty");
+		System.out.println("warranty" + warranty);
+		try {
+			
+			if((warranty != null && warranty.equals("NO"))){
+				
+				displayCart(request, response);
+				return;
+			}
+			if((warranty == null || !warranty.equals("YES"))){
+				Utilities utility = new Utilities(request, pw);
+				String name = request.getParameter("name");
+				String type = request.getParameter("type");
+				String maker = request.getParameter("maker");
+				String access = request.getParameter("access");
+				System.out.println("warranty" + warranty);
+				System.out.println("maker" + maker);
+				System.out.println("name" + name);
 
 
-		/* From the HttpServletRequest variable name,type,maker and acessories information are obtained.*/
 
+				System.out.println("CART added name   " + name + "   type   " + type + "   maker   " + maker + "   accesee   " + access);
+
+				/* StoreProduct Function stores the Purchased product in Orders HashMap.*/	
+
+			utility.storeProduct(name, type, maker, access);
+
+			displayWarranty(request, response);
+				return;
+			}
+			
+		} catch (Exception e) {
+			System.out.println("CART exception");
+			//TODO: handle exception
+		}
 		Utilities utility = new Utilities(request, pw);
-		String name = request.getParameter("name");
-		String type = request.getParameter("type");
-		String maker = request.getParameter("maker");
-		String access = request.getParameter("access");
-		System.out.print("name" + name + "type" + type + "maker" + maker + "accesee" + access);
+				String name = request.getParameter("name");
+				String type = request.getParameter("type");
+				String maker = request.getParameter("maker");
+				String access = request.getParameter("access");
+				System.out.println("warranty" + warranty);
+				System.out.println("maker" + maker);
+				System.out.println("name" + name);
 
-		/* StoreProduct Function stores the Purchased product in Orders HashMap.*/	
-		
-		utility.storeProduct(name, type, maker, access);
+
+
+				System.out.println("CART added name   " + name + "   type   " + type + "   maker   " + maker + "   accesee   " + access);
+
+				/* StoreProduct Function stores the Purchased product in Orders HashMap.*/	
+
+			utility.storeProduct(name, type, maker, access);
+
 		displayCart(request, response);
+		
+			/* From the HttpServletRequest variable name,type,maker and acessories information are obtained.*/
+
+			
+		
+		
 	}
+
+	protected void displayWarranty(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html");
+		PrintWriter pw = response.getWriter();
+		Utilities utility = new Utilities(request,pw);
+		if(!utility.isLoggedin()){
+			HttpSession session = request.getSession(true);				
+			session.setAttribute("login_msg", "Please Login to add items to cart");
+			response.sendRedirect("Login");
+			return;
+		}
+		
+		utility.printHtml("Header.html");
+		utility.printHtml("LeftNavigationBar.html");
+		pw.print("<div id='content'><div class='post'><h2 class='title meta'>");
+		pw.print("<a style='font-size: 24px;'>Cart("+utility.CartCount()+")</a>");
+		pw.print("</h2><div class='entry'>");
+		pw.print("<form name ='warranty' action='Cart' method='post'>");
+		pw.print("<p><b>'Do you want to add 1 year warranty for your'");
+		pw.print(request.getParameter("name") +"'</b></p><br />");
+
+		pw.print("<form method='post' action='Cart'>");
+		pw.print("<tr>");			
+		pw.print("<td><input type='submit' value='NO' class='btnbuy'></td>");
+		pw.print("<input type='hidden' name='AskWarraanty' value='NO'>");
+		pw.print("</tr>");
+		pw.print("</form>");
+
+		pw.print("<form method='post' action='Cart'>");
+		pw.print("<tr>");			
+		pw.print("<td><input type='submit' value='YES' class='btnbuy'></td>");
+		pw.print("<input type='hidden' name='AskWarraanty' value='YES'><input type='hidden' name='name' value='Warranty'><input type='hidden' name='type' value='consoles'>");
+		pw.print("</tr>");
+		pw.print("</form>");
+
+
+		pw.print("</form>");
+		pw.print("</div></div></div>");		
+		utility.printHtml("Footer.html");
+
+	}
+
 	
 
 /* displayCart Function shows the products that users has bought, these products will be displayed with Total Amount.*/
 
 	protected void displayCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
 		Utilities utility = new Utilities(request,pw);
@@ -84,7 +171,8 @@ public class Cart extends HttpServlet {
 		utility.printHtml("Footer.html");
 	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		//on cart click
+		System.out.println("CART BUTTON CLICKED");
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
 		Utilities utility = new Utilities(request, pw);

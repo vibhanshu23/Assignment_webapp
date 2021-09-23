@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ProductCatalog>
 	<WearableTechnology>
+		
+		<product id="Warranty">
+			<name>Warranty 1 Year</name>
+			<price>100.99</price>
+			<image>xbox1.jpg</image>
+			<manufacturer>Warranty</manufacturer>
+			<condition>New</condition>
+			<discount>10.0</discount>
+			<accessories>
+			</accessories>
+		</product>
 		<product id="FitnessWatch1">
 			<name>Fitness Watch 1</name>
 			<price>399.99</price>

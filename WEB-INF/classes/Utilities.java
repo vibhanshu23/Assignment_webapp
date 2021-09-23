@@ -207,10 +207,62 @@ public class Utilities extends HttpServlet{
 	/* StoreProduct Function stores the Purchased product in Orders HashMap according to the User Names.*/
 
 	public void storeProduct(String name,String type,String maker, String acc){
+		System.out.println("product type added to cart - " + type + "----");
 		if(!OrdersHashMap.orders.containsKey(username())){	
 			ArrayList<OrderItem> arr = new ArrayList<OrderItem>();
 			OrdersHashMap.orders.put(username(), arr);
 		}
+		ArrayList<OrderItem> orderItems = OrdersHashMap.orders.get(username()); //used to get cart orders of current users
+
+
+		// for (int i = 0; i < orderItems.length; i++) {
+  
+        //     // accessing each element of array
+        //     x = ar[i];
+        //     System.out.print(x + " ");
+        // }
+		for(OrderItem arrayItem   : orderItems){
+			
+			System.out.println();
+		//Any other operation can be done with this temp variable.
+		}
+
+		if(type.equals("consoles")){
+			Console console;
+			console = SaxParserDataStore.consoles.get(name);
+			OrderItem orderitem = new OrderItem(console.getName(), console.getPrice(), console.getImage(), console.getRetailer());
+			orderItems.add(orderitem);
+		}
+		if(type.equals("games")){
+			Game game = null;
+			game = SaxParserDataStore.games.get(name);
+			OrderItem orderitem = new OrderItem(game.getName(), game.getPrice(), game.getImage(), game.getRetailer());
+			orderItems.add(orderitem);
+		}
+		if(type.equals("tablets")){
+			Tablet tablet = null;
+			tablet = SaxParserDataStore.tablets.get(name);
+			OrderItem orderitem = new OrderItem(tablet.getName(), tablet.getPrice(), tablet.getImage(), tablet.getRetailer());
+			orderItems.add(orderitem);
+		}
+		if(type.equals("accessories")){	
+			Accessory accessory = SaxParserDataStore.accessories.get(name); 
+			OrderItem orderitem = new OrderItem(accessory.getName(), accessory.getPrice(), accessory.getImage(), accessory.getRetailer());
+			orderItems.add(orderitem);
+		}
+		//VOICEASSISTANT
+		
+	}
+
+	/* StoreProduct Function stores the Purchased product in Orders HashMap according to the User Names.*/
+
+	public void removeProductFromCart(String name,String type,String maker, String acc){
+		System.out.println("Remove product type to cart - " + type + "----");
+		if(!OrdersHashMap.orders.containsKey(username())){	
+			ArrayList<OrderItem> arr = new ArrayList<OrderItem>();
+			OrdersHashMap.orders.put(username(), arr);
+		}
+
 		ArrayList<OrderItem> orderItems = OrdersHashMap.orders.get(username());
 		if(type.equals("consoles")){
 			Console console;
@@ -235,8 +287,10 @@ public class Utilities extends HttpServlet{
 			OrderItem orderitem = new OrderItem(accessory.getName(), accessory.getPrice(), accessory.getImage(), accessory.getRetailer());
 			orderItems.add(orderitem);
 		}
+		//VOICEASSISTANT
 		
 	}
+
 	// store the payment details for orders
 	public void storePayment(int orderId,
 		String orderName,double orderPrice,String userAddress,String creditCardNo){

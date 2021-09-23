@@ -136,90 +136,90 @@ public class Admin extends HttpServlet {
 
 					pw.print("<form method='get' action='Admin'>");
 										
-					// pw.print("<tr><td></td></tr>");		
-					// pw.print("<tr>");
-					// pw.print("<td> Select to Remove </td>");
-					// pw.print("<td> Product Name </td>");
-					// pw.print("<td> List </td>");
-					// pw.print("</tr>");		
+					pw.print("<tr><td></td></tr>");		
+					pw.print("<tr>");
+					pw.print("<td> Select to Remove </td>");
+					pw.print("<td> Product Name </td>");
+					pw.print("<td> List </td>");
+					pw.print("</tr>");		
 	
 
-					// for(Map.Entry<String,Console> entry : SaxParserDataStore.consoles.entrySet())
-					// {
-					// 		pw.print("<tr>");			
-					// 		pw.print("<td><input type='radio' name='productName' value='"+entry.getValue().getId()+"'></td>");			
+					for(Map.Entry<String,Console> entry : SaxParserDataStore.consoles.entrySet())
+					{
+							pw.print("<tr>");			
+							pw.print("<td><input type='radio' name='productName' value='"+entry.getValue().getId()+"'></td>");			
 							
-					// 		pw.print("<td>"+entry.getValue().getName()+".</td><td>"+entry.getValue().getRetailer()+"</td>");
-					// 		pw.print("<td><input type='hidden' name='list' value='Console'></td>");
-					// 		pw.print("<td><input type='submit' name='Action' value='Delete' class='btnbuy'></td>");
-					// 		pw.print("</tr>");
-					// 		pw.print("</form>");
-					// }
-					// for(Map.Entry<String,Game> entry : SaxParserDataStore.games.entrySet())
-					// {
-					// 		pw.print("<tr>");			
-					// 		pw.print("<td><input type='radio' name='productName' value='"+entry.getValue().getId()+"'></td>");			
+							pw.print("<td>"+entry.getValue().getName()+".</td><td>"+entry.getValue().getRetailer()+"</td>");
+							pw.print("<td><input type='hidden' name='list' value='Console'></td>");
+							pw.print("<td><input type='submit' name='Action' value='Delete' class='btnbuy'></td>");
+							pw.print("</tr>");
+							pw.print("</form>");
+					}
+					for(Map.Entry<String,Game> entry : SaxParserDataStore.games.entrySet())
+					{
+							pw.print("<tr>");			
+							pw.print("<td><input type='radio' name='productName' value='"+entry.getValue().getId()+"'></td>");			
 							
-					// 		pw.print("<td>"+entry.getValue().getName()+".</td><td>"+entry.getValue().getRetailer()+"</td>");
-					// 		pw.print("<td><input type='hidden' name='list' value='Games'></td>");
-					// 		pw.print("<td><input type='submit' name='Action' value='Delete' class='btnbuy'></td>");
-					// 		pw.print("</tr>");
-					// 		pw.print("</form>");
-					// }
-					// for(Map.Entry<String,Tablet> entry : SaxParserDataStore.tablets.entrySet())
-					// {
-					// 		pw.print("<tr>");			
-					// 		pw.print("<td><input type='radio' name='productName' value='"+entry.getValue().getId()+"'></td>");			
+							pw.print("<td>"+entry.getValue().getName()+".</td><td>"+entry.getValue().getRetailer()+"</td>");
+							pw.print("<td><input type='hidden' name='list' value='Games'></td>");
+							pw.print("<td><input type='submit' name='Action' value='Delete' class='btnbuy'></td>");
+							pw.print("</tr>");
+							pw.print("</form>");
+					}
+					for(Map.Entry<String,Tablet> entry : SaxParserDataStore.tablets.entrySet())
+					{
+							pw.print("<tr>");			
+							pw.print("<td><input type='radio' name='productName' value='"+entry.getValue().getId()+"'></td>");			
 							
-					// 		pw.print("<td>"+entry.getValue().getName()+".</td><td>"+entry.getValue().getRetailer()+"</td>");
-					// 		pw.print("<td><input type='hidden' name='list' value='Tablets'></td>");
-					// 		pw.print("<td><input type='submit' name='Action' value='Delete' class='btnbuy'></td>");
-					// 		pw.print("</tr>");
-					// 		pw.print("</form>");
-					// }
-					// for(Map.Entry<String,Accessory> entry : SaxParserDataStore.accessories.entrySet())
-					// {
-					// 		pw.print("<tr>");			
-					// 		pw.print("<td><input type='radio' name='productName' value='"+entry.getValue().getId()+"'></td>");			
+							pw.print("<td>"+entry.getValue().getName()+".</td><td>"+entry.getValue().getRetailer()+"</td>");
+							pw.print("<td><input type='hidden' name='list' value='Tablets'></td>");
+							pw.print("<td><input type='submit' name='Action' value='Delete' class='btnbuy'></td>");
+							pw.print("</tr>");
+							pw.print("</form>");
+					}
+					for(Map.Entry<String,Accessory> entry : SaxParserDataStore.accessories.entrySet())
+					{
+							pw.print("<tr>");			
+							pw.print("<td><input type='radio' name='productName' value='"+entry.getValue().getId()+"'></td>");			
 							
-					// 		pw.print("<td>"+entry.getValue().getName()+".</td><td>"+entry.getValue().getRetailer()+"</td>");
-					// 		pw.print("<td><input type='hidden' name='list' value='accessories'></td>");
-					// 		pw.print("<td><input type='submit' name='Action' value='Delete' class='btnbuy'></td>");
-					// 		pw.print("</tr>");
-					// 		pw.print("</form>");
-					// }
+							pw.print("<td>"+entry.getValue().getName()+".</td><td>"+entry.getValue().getRetailer()+"</td>");
+							pw.print("<td><input type='hidden' name='list' value='accessories'></td>");
+							pw.print("<td><input type='submit' name='Action' value='Delete' class='btnbuy'></td>");
+							pw.print("</tr>");
+							pw.print("</form>");
+					}
 
-					pw.print("<tr><td>");
-					pw.print("Name</td>");
-					pw.print("<td><input type='text' name='setName'>");
-					pw.print("</td></tr>");
+					// pw.print("<tr><td>");
+					// pw.print("Name</td>");
+					// pw.print("<td><input type='text' name='setName'>");
+					// pw.print("</td></tr>");
 					
-					pw.print("<tr><td>");
-					pw.print("Discount</td>");
-					pw.print("<td><input type='text' name='setDiscount'>");
-					pw.print("</td></tr>");
+					// pw.print("<tr><td>");
+					// pw.print("Discount</td>");
+					// pw.print("<td><input type='text' name='setDiscount'>");
+					// pw.print("</td></tr>");
 
-					pw.print("<tr><td>");
-					pw.print("Condition</td>");
-					pw.print("<td><input type='text' name='setCondition'>");
-					pw.print("</td></tr>");
+					// pw.print("<tr><td>");
+					// pw.print("Condition</td>");
+					// pw.print("<td><input type='text' name='setCondition'>");
+					// pw.print("</td></tr>");
 					
-					pw.print("<tr><td>");
-					pw.print("Manufacturer</td>");
-					pw.print("<td><input type='text' name='setRetailer'>");
-					pw.print("</td></tr>");
+					// pw.print("<tr><td>");
+					// pw.print("Manufacturer</td>");
+					// pw.print("<td><input type='text' name='setRetailer'>");
+					// pw.print("</td></tr>");
 
-					pw.print("<tr><td>");
-					pw.print("ID</td>");
-					pw.print("<td><input type='text' name='setId'>");
-					pw.print("</td></tr>");
+					// pw.print("<tr><td>");
+					// pw.print("ID</td>");
+					// pw.print("<td><input type='text' name='setId'>");
+					// pw.print("</td></tr>");
 
-					pw.print("<tr><td>");
-					pw.print("Price</td>");
-					pw.print("<td><input type='text' name='setPrice'>");
-					pw.print("</td></tr>");
-					pw.print("<tr><input type='submit' name='Action' value='Add' class='btnbuy'></tr>");
-					pw.print("</form>");
+					// pw.print("<tr><td>");
+					// pw.print("Price</td>");
+					// pw.print("<td><input type='text' name='setPrice'>");
+					// pw.print("</td></tr>");
+					// pw.print("<tr><input type='submit' name='Action' value='Add' class='btnbuy'></tr>");
+					// pw.print("</form>");
 
 
 
