@@ -94,11 +94,11 @@ public class Account extends HttpServlet {
 						for(OrderPayment oi:entry.getValue())	
 						if(oi.getUserName().equals(user.getName())) 
 						{
-							pw.print("<form method='get' action='ViewOrder'>");
+							pw.print("<form method='post' action='ViewOrder'>");
 							pw.print("<tr>");			
 							pw.print("<td><input type='radio' name='orderName' value='"+oi.getOrderName()+"'></td>");			
 							pw.print("<td>"+oi.getOrderId()+".</td><td>"+oi.getUserName()+"</td><td>"+oi.getOrderName()+"</td><td>Price: "+oi.getOrderPrice()+"</td>");
-							pw.print("<td><input type='hidden' name='orderId' value='"+oi.getOrderId()+"'></td>");
+							pw.print("<td>"+ oi.getDateOrder() + "<td></td><input type='hidden' name='orderId' value='"+oi.getOrderId()+"'></td>"); //check removed date 
 							pw.print("<td><input type='submit' name='Order' value='CancelOrder' class='btnbuy'></td>");
 							pw.print("</tr>");
 							pw.print("</form>");
@@ -130,7 +130,7 @@ public class Account extends HttpServlet {
 					pw.print("</tr>");
 					pw.print("</form>");
 				}
-				if(user.getUsertype().equals("manager")){ // SalesManager //roles
+				if(user.getUsertype().equals("salesman")){ // SalesManager //roles
 					pw.print("<form method='get' action='Registration'>");
 					pw.print("<tr>");			
 					pw.print("<td><input type='submit' name='Register Customer' value='Register Customer' class='btnbuy'></td>");

@@ -38,34 +38,34 @@ public class NextAccessory extends HttpServlet {
 		   {
 			 for(Map.Entry<String,Console> entry : SaxParserDataStore.consoles.entrySet())
 			 {
-				if(entry.getValue().getRetailer().equals("Microsoft"))
+				if(entry.getValue().getRetailer().equals("microsoft"))
 				 {
 					 hm.put(entry.getValue().getId(),entry.getValue());
 				 }
 			 }
-				name = "Microsoft";
+				name = "microsoft";
 		   }
 		   else if(CategoryName.equals("sony"))
 		    {
 			for(Map.Entry<String,Console> entry : SaxParserDataStore.consoles.entrySet())
 				{
-				 if(entry.getValue().getRetailer().equals("Sony"))
+				 if(entry.getValue().getRetailer().equals("sony"))
 				 {
 					 hm.put(entry.getValue().getId(),entry.getValue());
 				 }
 				}
-				 name = "Sony";
+				 name = "sony";
 			}
 			else if(CategoryName.equals("nintendo"))
 			{
 				for(Map.Entry<String,Console> entry : SaxParserDataStore.consoles.entrySet())
 				{
-				 if(entry.getValue().getRetailer().equals("Nintendo"))
+				 if(entry.getValue().getRetailer().equals("nintendo"))
 				 {
 					 hm.put(entry.getValue().getId(),entry.getValue());
 				 }
 				}
-			   	 name = "Nintendo";
+			   	 name = "nintendo";
 			}
 		}
 		

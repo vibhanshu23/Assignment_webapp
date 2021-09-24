@@ -44,7 +44,7 @@ public class CheckOut extends HttpServlet {
         String orderTotal = request.getParameter("orderTotal");
 		utility.printHtml("Header.html");
 		utility.printHtml("LeftNavigationBar.html");
-		pw.print("<form name ='CheckOut' action='Payment' method='post'>");
+		pw.print("<form name ='CheckOut' action='PaymentNew' method='post'>");
         pw.print("<div id='content'><div class='post'><h2 class='title meta'>");
 		pw.print("<a style='font-size: 24px;'>Order</a>");
 		pw.print("</h2><div class='entry'>");
@@ -66,6 +66,22 @@ public class CheckOut extends HttpServlet {
 		pw.print("<input type='hidden' name='orderTotal' value='"+orderTotal+"'>");
 		pw.print("</td></tr></table><table><tr></tr><tr></tr>");	
 
+		pw.print("Street");
+		pw.print("<td><input type='text' name='streetAddress'>");
+        pw.print("</td></tr>");
+		pw.print("<tr><td>");
+	    pw.print("City</td>");
+		pw.print("<td><input type='text' name='cityAddress'>");
+        pw.print("</td></tr>");
+		pw.print("<tr><td>");
+	    pw.print("State</td>");
+		pw.print("<td><input type='text' name='stateAddress'>");
+        pw.print("</td></tr>");
+		pw.print("<tr><td>");
+	    pw.print("Zip-Code</td>");
+		pw.print("<td><input type='text' name='zipcodeAddress'>");
+        pw.print("</td></tr>");	
+		
 
 		pw.print("<tr><td>");
      	pw.print("Credit/accountNo</td>");
@@ -78,11 +94,23 @@ public class CheckOut extends HttpServlet {
 		pw.print("<td><input type='text' name='userAddress'>");
         pw.print("</td></tr>");
 
+		User user = utility.getUser();
+		System.out.print("user type " + user.getUsertype());
+		if(user.getUsertype().equals("salesman")){
+			pw.print("<tr><td>");
+			pw.print("Chose Customer</td>");
+			pw.print("<td><input type='text' name='ChoseCustomer'>");
+			pw.print("</td></tr>");
+		}
+		
+		//user details
+
 
 		pw.print("<tr><td colspan='1'>");
-		pw.print("<input type='submit' name='submit' value='Store Pickup' class='btnbuy'>");
+		pw.print("<input type='submit' name='type' value='Store Pickup' class='btnbuy'>");
+
 		pw.print("<tr><td colspan='1'>");
-		pw.print("<input type='submit' name='submit' value='Home Delivery' class='btnbuy'>");
+		pw.print("<input type='submit' name='type' value='Home Delivery' class='btnbuy'>");
 
 
         pw.print("</td></tr></table></form>");

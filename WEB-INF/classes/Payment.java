@@ -1,5 +1,8 @@
 import java.io.IOException;
 import java.io.PrintWriter;
+// import java.sql.Date;
+import java.util.*;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,9 +33,14 @@ public class Payment extends HttpServlet {
 
 		String userAddress=request.getParameter("userAddress");
 		String creditCardNo=request.getParameter("creditCardNo");
-		System.out.print("Payment.java the user address is" +userAddress + "---------------");
+		String ChoseCustomer =request.getParameter("ChoseCustomer"); //check
+		String deliveryType =request.getParameter("type"); //
+
+		Date orderDate = new Date();  
+
+		System.out.println("Payment.java the user address is" +userAddress + "---------------");
 		System.out.print(creditCardNo);
-		if(!userAddress.isEmpty() && !creditCardNo.isEmpty() )
+		if(!userAddress.isEmpty() && !creditCardNo.isEmpty() ) //check for mandate
 		{
 			//Random rand = new Random(); 
 			//int orderId = rand.nextInt(100);
@@ -45,7 +53,7 @@ public class Payment extends HttpServlet {
 
 				//set the parameter for each column and execute the prepared statement
 
-				utility.storePayment(orderId,oi.getName(),oi.getPrice(),userAddress,creditCardNo);
+				utility.storePayment(orderId,oi.getName(),oi.getPrice(),userAddress,creditCardNo,orderDate , deliveryType); //check
 			}
 
 			//remove the order details from cart after processing

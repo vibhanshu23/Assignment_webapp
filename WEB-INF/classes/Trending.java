@@ -34,7 +34,7 @@ public class Trending extends HttpServlet {
 			{
 				for(Map.Entry<String,Console> entry : SaxParserDataStore.consoles.entrySet())
 				{
-				  if(entry.getValue().getRetailer().equals("Microsoft")) 
+				  if(entry.getValue().getRetailer().equals("microsoft")) 
 				  {
 					 hm.put(entry.getValue().getId(),entry.getValue());
 				  }
@@ -44,7 +44,7 @@ public class Trending extends HttpServlet {
 			{
 				for(Map.Entry<String,Console> entry : SaxParserDataStore.consoles.entrySet())
 				{
-				  if(entry.getValue().getRetailer().equals("Sony"))
+				  if(entry.getValue().getRetailer().equals("sony"))
 				  {
 					 hm.put(entry.getValue().getId(),entry.getValue());
 				  }
@@ -54,7 +54,7 @@ public class Trending extends HttpServlet {
 			{
 				for(Map.Entry<String,Console> entry : SaxParserDataStore.consoles.entrySet())
 				{ 
-			      if(entry.getValue().getRetailer().equals("Nintendo"))
+			      if(entry.getValue().getRetailer().equals("nintendo"))
 				  {
 					 hm.put(entry.getValue().getId(),entry.getValue());
 				  }

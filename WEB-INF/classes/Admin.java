@@ -117,6 +117,7 @@ public class Admin extends HttpServlet {
 			HttpSession session=request.getSession(); 	
 			utility.printHtml("Header.html");
 			utility.printHtml("LeftNavigationBar.html");
+			pw.print("<div id='content'><div class='post'><h2 class='title meta'>");
 			int size=0;
 			for(Map.Entry<String,Console> entry : SaxParserDataStore.consoles.entrySet())
 			 {
@@ -132,6 +133,46 @@ public class Admin extends HttpServlet {
 				
 			if(size>0)
 				{	
+					pw.print("<table class='gridtable'>");
+
+					pw.print("<form method='get' action='Admin'>");
+
+					pw.print("<tr><td>");
+					pw.print("Name</td>");
+					pw.print("<td><input type='text' name='setName'>");
+					pw.print("</td></tr>");
+					
+					pw.print("<tr><td>");
+					pw.print("Discount</td>");
+					pw.print("<td><input type='text' name='setDiscount'>");
+					pw.print("</td></tr>");
+
+					pw.print("<tr><td>");
+					pw.print("Condition</td>");
+					pw.print("<td><input type='text' name='setCondition'>");
+					pw.print("</td></tr>");
+					
+					pw.print("<tr><td>");
+					pw.print("Manufacturer</td>");
+					pw.print("<td><input type='text' name='setRetailer'>");
+					pw.print("</td></tr>");
+
+					pw.print("<tr><td>");
+					pw.print("ID</td>");
+					pw.print("<td><input type='text' name='setId'>");
+					pw.print("</td></tr>");
+
+					pw.print("<tr><td>");
+					pw.print("Price</td>");
+					pw.print("<td><input type='text' name='setPrice'>");
+					pw.print("</td></tr>");
+					pw.print("<tr><input type='submit' name='Action' value='Add' class='btnbuy'></tr>");
+					pw.print("</form>");
+
+
+
+
+					pw.print("</table>");
 					pw.print("<table class='gridtable'>");
 
 					pw.print("<form method='get' action='Admin'>");
@@ -189,42 +230,9 @@ public class Admin extends HttpServlet {
 							pw.print("</form>");
 					}
 
-					// pw.print("<tr><td>");
-					// pw.print("Name</td>");
-					// pw.print("<td><input type='text' name='setName'>");
-					// pw.print("</td></tr>");
-					
-					// pw.print("<tr><td>");
-					// pw.print("Discount</td>");
-					// pw.print("<td><input type='text' name='setDiscount'>");
-					// pw.print("</td></tr>");
-
-					// pw.print("<tr><td>");
-					// pw.print("Condition</td>");
-					// pw.print("<td><input type='text' name='setCondition'>");
-					// pw.print("</td></tr>");
-					
-					// pw.print("<tr><td>");
-					// pw.print("Manufacturer</td>");
-					// pw.print("<td><input type='text' name='setRetailer'>");
-					// pw.print("</td></tr>");
-
-					// pw.print("<tr><td>");
-					// pw.print("ID</td>");
-					// pw.print("<td><input type='text' name='setId'>");
-					// pw.print("</td></tr>");
-
-					// pw.print("<tr><td>");
-					// pw.print("Price</td>");
-					// pw.print("<td><input type='text' name='setPrice'>");
-					// pw.print("</td></tr>");
-					// pw.print("<tr><input type='submit' name='Action' value='Add' class='btnbuy'></tr>");
-					// pw.print("</form>");
-
-
-
-
 					pw.print("</table>");
+
+				
 				}
 				else
 				{
@@ -232,7 +240,7 @@ public class Admin extends HttpServlet {
 				}
 			
 			pw.print("</table>");		
-			pw.print("</h2></div></div></div>");	
+			pw.print("</h2></div></div>");	
 			utility.printHtml("Footer.html");	        	
 		}
 		catch(Exception e)

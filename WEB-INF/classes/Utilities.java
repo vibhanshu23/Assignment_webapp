@@ -51,10 +51,19 @@ public class Utilities extends HttpServlet{
 			if (session.getAttribute("username")!=null){
 				String username = session.getAttribute("username").toString();
 				username = Character.toUpperCase(username.charAt(0)) + username.substring(1);
-				result = result + "<li><a href='ViewOrder'><span class='glyphicon'>ViewOrder</span></a></li>"
+
+
+				result = result + "<form action='ViewOrder' method='post'><input type='submit' class='btnbuy' value='ViewOrder'><span class='glyphicon'>ViewOrder</span></a></li><input type='hidden' name='Order' value='Chicago'></form>"
 						+ "<li><a><span class='glyphicon'>Hello,"+username+"</span></a></li>"
 						+ "<li><a href='Account'><span class='glyphicon'>Account</span></a></li>"
 						+ "<li><a href='Logout'><span class='glyphicon'>Logout</span></a></li>";
+						System.out.print("bata diya");
+
+				//check view order
+
+						
+
+
 			}
 			else
 				result = result +"<li><a href='ViewOrder'><span class='glyphicon'>View Order</span></a></li>"+ "<li><a href='Login'><span class='glyphicon'>Login</span></a></li>";
@@ -279,7 +288,7 @@ public class Utilities extends HttpServlet{
 
 	// store the payment details for orders
 	public void storePayment(int orderId,
-		String orderName,double orderPrice,String userAddress,String creditCardNo){
+		String orderName,double orderPrice,String userAddress,String creditCardNo, Date orderDate, String deliveryType){
 		HashMap<Integer, ArrayList<OrderPayment>> orderPayments= new HashMap<Integer, ArrayList<OrderPayment>>();
 		String TOMCAT_HOME = System.getProperty("catalina.home");
 			// get the payment details file 
@@ -312,7 +321,7 @@ public class Utilities extends HttpServlet{
 				orderPayments.put(orderId, arr);
 			}
 		ArrayList<OrderPayment> listOrderPayment = orderPayments.get(orderId);		
-		OrderPayment orderpayment = new OrderPayment(orderId,username(),orderName,orderPrice,userAddress,creditCardNo);
+		OrderPayment orderpayment = new OrderPayment(orderId,username(),orderName,orderPrice,userAddress,creditCardNo,orderDate,deliveryType);
 		listOrderPayment.add(orderpayment);	
 			
 			// add order details into file
@@ -342,6 +351,63 @@ public class Utilities extends HttpServlet{
 			}	
 	}
 
+	public void storePaymentwithUser(int orderId,
+		String orderName,double orderPrice,String userAddress,String creditCardNo, Date orderDate, String deliveryType,String username){
+		HashMap<Integer, ArrayList<OrderPayment>> orderPayments= new HashMap<Integer, ArrayList<OrderPayment>>();
+		String TOMCAT_HOME = System.getProperty("catalina.home");
+			// get the payment details file 
+			try
+			{
+				FileInputStream fileInputStream = new FileInputStream(new File(TOMCAT_HOME+"/webapps/Assignment_webapp/PaymentDetails.txt"));
+				
+				ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);	      
+				orderPayments = (HashMap)objectInputStream.readObject();
+			}
+			catch(Exception e)
+			{
+				System.out.println("VIB ---- inside exception file not written properly /n ------ " + e);
+				e.printStackTrace();
+			}
+			if(orderPayments==null)
+			{
+				orderPayments = new HashMap<Integer, ArrayList<OrderPayment>>();
+			}
+			// if there exist order id already add it into same list for order id or create a new record with order id
+			
+			if(!orderPayments.containsKey(orderId)){	
+				ArrayList<OrderPayment> arr = new ArrayList<OrderPayment>();
+				orderPayments.put(orderId, arr);
+			}
+		ArrayList<OrderPayment> listOrderPayment = orderPayments.get(orderId);		
+		OrderPayment orderpayment = new OrderPayment(orderId,username,orderName,orderPrice,userAddress,creditCardNo,orderDate,deliveryType);
+		listOrderPayment.add(orderpayment);	
+			
+			// add order details into file
+
+			try
+			{	
+				FileOutputStream fileOutputStream = new FileOutputStream(new File(TOMCAT_HOME+"/webapps/Assignment_webapp/PaymentDetails.txt"));
+				// ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+            	// objectOutputStream.writeObject(orderPayments);
+				// objectOutputStream.flush();
+				// objectOutputStream.close();       
+				// fileOutputStream.close();
+
+				// String relativeWebPathForPaymentdetails = "/PaymentDetails.txt";
+  				// String absoluteDiskPath = super.getServletContext().getRealPath(relativeWebPathForPaymentdetails);
+				// FileOutputStream fileOutputStream = new FileOutputStream(new File(this.url+"/PaymentDetails.txt"));
+				ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+            	objectOutputStream.writeObject(orderPayments);
+				objectOutputStream.flush();
+				objectOutputStream.close();       
+				fileOutputStream.close();
+				
+			}
+			catch(Exception e)
+			{
+				System.out.println("inside exception file not written properly");
+			}	
+	}
 	
 	/* getConsoles Functions returns the Hashmap with all consoles in the store.*/
 
