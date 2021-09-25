@@ -15,11 +15,10 @@ public class ViewOrder extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-				System.out.println("Reached Here do get DOOOOO GETTTT");
+				System.out.println("--------Get agaya");
 
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
-
 		Utilities utility = new Utilities(request, pw);
 		// check if the user is logged in
 		if (!utility.isLoggedin()) {
@@ -45,7 +44,21 @@ public class ViewOrder extends HttpServlet {
 		 */
 		User user = utility.getUser();
 		System.out.println("is user manager " + user.getUsertype().equals("salesman"));
-		if (request.getParameter("Order") == null){//} && !user.getUsertype().equals("salesman")) {
+// if(strOrder != null){
+
+// }		
+		String strOrder = request.getParameter("Order");;
+
+		if(strOrder.equals("Hello") && user.getUsertype().equals("salesman")){
+			strOrder = "Chicago";
+		}
+		else if(strOrder.equals("Hello")){
+			strOrder = "ViewOrder";
+		}
+
+		System.out.println("ORDER IS " + strOrder);
+
+		if (strOrder == null){//} && !user.getUsertype().equals("salesman")) {
 			pw.print("<table align='center'><tr><td>Enter OrderNo &nbsp&nbsp<input name='orderId' type='text'></td>");
 			pw.print("<td><input type='submit' name='Order' value='ViewOrder' class='btnbuy'></td></tr></table>");
 		}
@@ -61,11 +74,11 @@ public class ViewOrder extends HttpServlet {
 		 * order details will be fetched and displayed in a table Also user will get an
 		 * button to cancel the order
 		 */
-		System.out.println("Reached Here" + request.getParameter("Order"));
-		if ((request.getParameter("Order") != null && request.getParameter("Order").equals("Chicago")) && user.getUsertype().equals("salesman")) {
-			System.out.println("Reached Here do get adadas");
+		System.out.println("Reached Here" + strOrder);
+		if ((strOrder != null && strOrder.equals("Chicago")) && user.getUsertype().equals("salesman")) {
+			System.out.println(" order is chicago");
 
-			pw.print("<h4 style='color:red'>You have not Manager shahab any order with this order id</h4>");
+
 
 			try {
 				FileInputStream fileInputStream = new FileInputStream(
@@ -129,8 +142,10 @@ public class ViewOrder extends HttpServlet {
 			}
 		}
 
-		if (request.getParameter("Order") != null || request.getParameter("Order").equals("ViewOrder")) {
-			System.out.println("Reached Here do get if 6");
+		if (strOrder != null || strOrder.equals("ViewOrder")) {
+			System.out.println(" order is vieworder");
+
+			System.out.println(" 1 Reached Here do get if 6" + request.getParameter("orderId"));
 
 			if (request.getParameter("orderId") != null && request.getParameter("orderId") != "") {
 				System.out.println("Reached Here do get 7");
@@ -188,14 +203,15 @@ public class ViewOrder extends HttpServlet {
 					pw.print("</table>");
 				} 
 				else{
-					pw.print("<h4 style='color:red'>Please enter the valid order number</h4>");
+					pw.print("<h4 style='color:red'>Hello,</h4>");
 				}
 			} 
 		}
 		// if the user presses cancel order from order details shown then process to
 		// cancel the order
 
-		if (request.getParameter("Order") != null && request.getParameter("Order").equals("CancelOrder")) {
+		if (strOrder != null && strOrder.equals("CancelOrder")) {
+			System.out.println(" order is CancelOrder");
 			System.out.println("Reached Here do get if 2");
 
 			if (request.getParameter("orderName") != null) {
@@ -267,7 +283,7 @@ public class ViewOrder extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		System.out.println("Post agaya");
+		System.out.println("--------Post agaya");
 
 	response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
@@ -282,13 +298,23 @@ public class ViewOrder extends HttpServlet {
 		}
 
 		User user1 = utility.getUser();
+		String strOrder = request.getParameter("Order");;
 
-		if(user1.getUsertype().equals("salesman") && (request.getParameter("Order") != null && request.getParameter("Order").equals("Chicago"))){
+		if(strOrder.equals("Hello") && user1.getUsertype().equals("salesman")){
+			strOrder = "Chicago";
+		}
+		else if(strOrder.equals("Hello")){
+			strOrder = "ViewOrder";
+		}
+		System.out.println("ORDER IS " + strOrder + "and orderId is "+ request.getParameter("orderId"));
+
+		if(user1.getUsertype().equals("salesman") && (strOrder != null && strOrder.equals("Chicago"))){
 			System.out.println("is user manager salesman)");
+			System.out.println("do post chicago");
 			String username = utility.username();
 			utility.printHtml("Header.html");
 			utility.printHtml("LeftNavigationBar.html");
-			pw.print("<form name ='ViewOrder' action='ViewOrder' method='get'>");
+			pw.print("<form name ='ViewOrder' action='ViewOrder' method='post'>");
 			pw.print("<div id='content'><div class='post'><h2 class='title meta'>");
 			pw.print("<a style='font-size: 24px;'>Order</a>");
 			pw.print("</h2><div class='entry'>");
@@ -308,8 +334,8 @@ public class ViewOrder extends HttpServlet {
 	
 			HashMap<Integer, ArrayList<OrderPayment>> orderPayments = new HashMap<Integer, ArrayList<OrderPayment>>();
 			String TOMCAT_HOME = System.getProperty("catalina.home");
-			System.out.println("doPost Reached Here " + request.getParameter("Order"));
-			// if ((request.getParameter("Order") != null && request.getParameter("Order").equals("Chicago")) && user.getUsertype().equals("salesman")) {
+			System.out.println("doPost Reached Here " + strOrder);
+			// if ((strOrder != null && strOrder.equals("Chicago")) && user.getUsertype().equals("salesman")) {
 				// if (user.getUsertype().equals("salesman")) {
 					System.out.println("doPost Reached Here 6");
 	
@@ -354,13 +380,18 @@ public class ViewOrder extends HttpServlet {
 					pw.print("<td>productPrice:</td></tr>");
 					for (Map.Entry<Integer, ArrayList<OrderPayment>> od : orderPayments.entrySet()) {
 						for (OrderPayment orderItem : od.getValue()) {
+							pw.print("<form method='post' action='ViewOrder'>");
+
 							pw.print("<tr>");
 							pw.print("<td><input type='radio' name='orderName' value='" + orderItem.getOrderName()
 									+ "'></td>");
 							pw.print("<td>" + orderItem.getOrderId() + ".</td><td>" + orderItem.getUserName() + "</td><td>"
 									+ orderItem.getOrderName() + "</td><td>Price:" + orderItem.getOrderPrice() + "</td>");
 							pw.print("<td><input type='submit' name='Order' value='CancelOrder' class='btnbuy'></td>");
+							pw.print("<input type='hidden' name='orderId' value='"+orderItem.getOrderId()+"'>");
 							pw.print("</tr>");
+							pw.print("</form>");
+
 	
 							System.out.println("----------" + orderItem.getOrderName() + orderItem.getOrderId());
 						}
@@ -389,8 +420,10 @@ public class ViewOrder extends HttpServlet {
 			pw.print("<div id='content'><div class='post'><h2 class='title meta'>");
 			pw.print("<a style='font-size: 24px;'>Order</a>");
 			pw.print("</h2><div class='entry'>");
-	
-			/*
+			System.out.println("rechech else");
+
+			/*			System.out.println("is user manager salesman)");
+
 			 * check if the order button is clicked if order button is not clicked that
 			 * means the view order page is visited freshly then user will get textbox to
 			 * give order number by which he can view order if order button is clicked user
@@ -399,7 +432,7 @@ public class ViewOrder extends HttpServlet {
 			 */
 			User user = utility.getUser();
 			System.out.println("is user manager " + user.getUsertype().equals("salesman"));
-			if (request.getParameter("Order") == null){//} && !user.getUsertype().equals("salesman")) {
+			if (strOrder == null || strOrder == "" || request.getParameter("orderId") == null){//} && !user.getUsertype().equals("salesman")) {
 				pw.print("<table align='center'><tr><td>Enter OrderNo &nbsp&nbsp<input name='orderId' type='text'></td>");
 				pw.print("<td><input type='submit' name='Order' value='ViewOrder' class='btnbuy'></td></tr></table>");
 			}
@@ -415,75 +448,79 @@ public class ViewOrder extends HttpServlet {
 			 * order details will be fetched and displayed in a table Also user will get an
 			 * button to cancel the order
 			 */
-			System.out.println("Reached Here" + request.getParameter("Order"));
-			if ((request.getParameter("Order") != null && request.getParameter("Order").equals("Chicago")) && user.getUsertype().equals("salesman")) {
-				System.out.println("Reached Here do get adadas");
+			System.out.println("Reached Here" + strOrder);
+			// if ((strOrder != null && strOrder.equals("Chicago")) && user.getUsertype().equals("salesman")) {
+			// 	System.out.println("Reached Here do get adadas");
 	
-				pw.print("<h4 style='color:red'>You have not Manager shahab any order with this order id</h4>");
+			// 	pw.print("<h4 style='color:red'>You have not Manager shahab any order with this order id</h4>");
 	
-				try {
-					FileInputStream fileInputStream = new FileInputStream(
-							new File(TOMCAT_HOME + "/webapps/Assignment_webapp/PaymentDetails.txt"));
-					// ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-					// orderPayments = (HashMap)objectInputStream.readObject();
+			// 	try {
+			// 		FileInputStream fileInputStream = new FileInputStream(
+			// 				new File(TOMCAT_HOME + "/webapps/Assignment_webapp/PaymentDetails.txt"));
+			// 		// ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+			// 		// orderPayments = (HashMap)objectInputStream.readObject();
 	
-					// String relativeWebPathForPaymentdetails = "/PaymentDetails.txt";
-					// String absoluteDiskPath =
-					// getServletContext().getRealPath(relativeWebPathForPaymentdetails);
-					// FileInputStream fileInputStream = new FileInputStream(new
-					// File(absoluteDiskPath));
-					ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-					orderPayments = (HashMap) objectInputStream.readObject();
-				} catch (Exception e) {
-					System.out.println("Reached exception ");
+			// 		// String relativeWebPathForPaymentdetails = "/PaymentDetails.txt";
+			// 		// String absoluteDiskPath =
+			// 		// getServletContext().getRealPath(relativeWebPathForPaymentdetails);
+			// 		// FileInputStream fileInputStream = new FileInputStream(new
+			// 		// File(absoluteDiskPath));
+			// 		ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+			// 		orderPayments = (HashMap) objectInputStream.readObject();
+			// 	} catch (Exception e) {
+			// 		System.out.println("Reached exception ");
 	
-				}
-				int size = 0;
+			// 	}
+			// 	int size = 0;
 	
-				/*
-				 * get the order size and check if there exist an order with given order number
-				 * if there is no order present give a message no order stored with this id
-				 */
+			// 	/*
+			// 	 * get the order size and check if there exist an order with given order number
+			// 	 * if there is no order present give a message no order stored with this id
+			// 	 */
 	
-				// if(orderPayments.get(orderId)!=null)
-				// {
-				// System.out.println(orderPayments);
-				for (Map.Entry<Integer, ArrayList<OrderPayment>> od : orderPayments.entrySet()) {
-					// System.out.println("Integer and ArrayLists" + od.getKey() + "sdasdadas " + od.getValue());
-					for (OrderPayment orderItem : od.getValue()) {
-						// System.out.println("Order List and ArrayLists" + orderItem.getOrderName());
-						size = size + 1;
-					}
-					// size= orderPayments.get(orderId).size();
-				}
-				// display the orders if there exist order with order id
-				if (size > 0) {
-					pw.print("<table class='gridtable'>");
-					pw.print("<tr><td></td>");
-					pw.print("<td>OrderId:</td>");
-					pw.print("<td>UserName:</td>");
-					pw.print("<td>productOrdered:</td>");
-					pw.print("<td>productPrice:</td></tr>");
-					for (Map.Entry<Integer, ArrayList<OrderPayment>> od : orderPayments.entrySet()) {
-						for (OrderPayment orderItem : od.getValue()) {
-							pw.print("<tr>");
-							pw.print("<td><input type='radio' name='orderName' value='" + orderItem.getOrderName()
-									+ "'></td>");
-							pw.print("<td>" + orderItem.getOrderId() + ".</td><td>" + orderItem.getUserName() + "</td><td>"
-									+ orderItem.getOrderName() + "</td><td>Price:" + orderItem.getOrderPrice() + "</td>");
-							pw.print("<td><input type='submit' name='Order' value='CancelOrder' class='btnbuy'></td>");
-							pw.print("</tr>");
+			// 	// if(orderPayments.get(orderId)!=null)
+			// 	// {
+			// 	// System.out.println(orderPayments);
+			// 	for (Map.Entry<Integer, ArrayList<OrderPayment>> od : orderPayments.entrySet()) {
+			// 		// System.out.println("Integer and ArrayLists" + od.getKey() + "sdasdadas " + od.getValue());
+			// 		for (OrderPayment orderItem : od.getValue()) {
+			// 			// System.out.println("Order List and ArrayLists" + orderItem.getOrderName());
+			// 			size = size + 1;
+			// 		}
+			// 		// size= orderPayments.get(orderId).size();
+			// 	}
+			// 	// display the orders if there exist order with order id
+			// 	if (size > 0) {
+			// 		pw.print("<table class='gridtable'>");
+			// 		pw.print("<tr><td></td>");
+			// 		pw.print("<td>OrderId:</td>");
+			// 		pw.print("<td>UserName:</td>");
+			// 		pw.print("<td>productOrdered:</td>");
+			// 		pw.print("<td>productPrice:</td></tr>");
+			// 		for (Map.Entry<Integer, ArrayList<OrderPayment>> od : orderPayments.entrySet()) {
+			// 			for (OrderPayment orderItem : od.getValue()) {
+			// 				pw.print("<form method='post' action='ViewOrder'>");
+
+			// 				pw.print("<tr>");
+			// 				pw.print("<td><input type='radio' name='orderName' value='" + orderItem.getOrderName()
+			// 						+ "'></td>");
+			// 				pw.print("<td>" + orderItem.getOrderId() + ".</td><td>" + orderItem.getUserName() + "</td><td>"
+			// 						+ orderItem.getOrderName() + "</td><td>Price:" + orderItem.getOrderPrice() + "</td>");
+			// 				pw.print("<td><input type='submit' name='Order' value='CancelOrder' class='btnbuy'></td>");
+			// 				pw.print("</tr>");
+			// 				pw.print("</form>");
+
 	
-							System.out.println("----------" + orderItem.getOrderName() + orderItem.getOrderId());
-						}
-						// size= orderPayments.get(orderId).size();
-					}
+			// 				System.out.println("----------" + orderItem.getOrderName() + orderItem.getOrderId());
+			// 			}
+			// 			// size= orderPayments.get(orderId).size();
+			// 		}
 	
-					pw.print("</table>");
-				}
-			}
+			// 		pw.print("</table>");
+			// 	}
+			// }
 	
-			if (request.getParameter("Order") != null || request.getParameter("Order").equals("ViewOrder")) {
+			if (strOrder != null || strOrder.equals("ViewOrder")) {
 				System.out.println("Reached Here do get if 6");
 	
 				if (request.getParameter("orderId") != null && request.getParameter("orderId") != "") {
@@ -542,14 +579,16 @@ public class ViewOrder extends HttpServlet {
 						pw.print("</table>");
 					} 
 					else{
-						pw.print("<h4 style='color:red'>Please enter the valid order number</h4>");
+						// pw.print("<h4 style='color:red'>Please enter the valid order number</h4>");
+						System.out.println("Reached some elsee checkkkk ");
+
 					}
 				} 
 			}
 			// if the user presses cancel order from order details shown then process to
 			// cancel the order
 	
-			if (request.getParameter("Order") != null && request.getParameter("Order").equals("CancelOrder")) {
+			if (strOrder != null && strOrder.equals("CancelOrder")) {
 				System.out.println("Reached Here do get if 2");
 	
 				if (request.getParameter("orderName") != null) {
