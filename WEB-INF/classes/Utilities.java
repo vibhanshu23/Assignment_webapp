@@ -53,7 +53,7 @@ public class Utilities extends HttpServlet{
 				username = Character.toUpperCase(username.charAt(0)) + username.substring(1);
 				
 
-				result = result + "<form action='ViewOrder' method='post'><input type='submit' class='btnbuy' value='ViewOrder'><span class='glyphicon'>ViewOrder</span></a></li><input type='hidden' name='Order' value='Hello'></form>"
+				result = result + "<form action='ViewOrder' method='post'><input type='submit' class='btnbuy' value='ViewOrder'><span class='glyphicon'></span></a></li><input type='hidden' name='Order' value='Hello'></form>"
 						+ "<li><a><span class='glyphicon'>Hello,"+username+"</span></a></li>"
 						+ "<li><a href='Account'><span class='glyphicon'>Account</span></a></li>"
 						+ "<li><a href='Logout'><span class='glyphicon'>Logout</span></a></li>";

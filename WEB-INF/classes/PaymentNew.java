@@ -60,7 +60,7 @@ public class PaymentNew extends HttpServlet {
 			pw.print("</h2></div></div></div>");		
 			utility.printHtml("Footer.html");
 
-		}else if(!userAddress.isEmpty() && !creditCardNo.isEmpty() && !deliveryType.isEmpty()) //check for mandate
+		}else if(!userAddress.isEmpty() && !creditCardNo.isEmpty() && !deliveryType.isEmpty()) // mandate
 		{
 			int orderId=utility.getOrderPaymentSize()+1;
 			System.out.println("going for order " +creditCardNo);
@@ -78,7 +78,7 @@ public class PaymentNew extends HttpServlet {
 
 				}
 				else{
-					utility.storePayment(orderId,oi.getName(),oi.getPrice(),userAddress,creditCardNo,orderDate , deliveryType); //check
+					utility.storePayment(orderId,oi.getName(),oi.getPrice(),userAddress,creditCardNo,orderDate , deliveryType); //
 				}
 			}
 

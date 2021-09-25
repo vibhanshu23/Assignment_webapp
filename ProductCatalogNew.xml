@@ -15,7 +15,7 @@
 		<product id="FitnessWatch1">
 			<name>Fitness Watch 1</name>
 			<price>399.99</price>
-			<image>xbox1.jpg</image>
+			<image>12.jpg</image>
 			<manufacturer>Fitness Watches</manufacturer>
 			<condition>New</condition>
 			<discount>10.0</discount>
@@ -32,7 +32,7 @@
 		<product id="FitnessWatch2">
 			<name>Fitness Watch 2</name>
 			<price>399.99</price>
-			<image>xbox360.jpg</image>
+			<image>13.jpg</image>
 			<manufacturer>Fitness Watches</manufacturer>
 			<condition>New</condition>
 			<discount>10.0</discount>
@@ -48,7 +48,7 @@
 		<product id="SmartWatch1">
 			<name>Smart Watch 1</name>
 			<price>349.99</price>
-			<image>PS4-console-bundle.jpg</image>
+			<image>14.jpg</image>
 			<manufacturer>Smart Watches</manufacturer>
 			<condition>New</condition>
 			<discount>10.0</discount>
@@ -68,7 +68,7 @@
 		<product id="Headphones1">
 			<name>Headphones 1</name>
 			<price>349.99</price>
-			<image>ps3.jpg</image>
+			<image>21.jpg</image>
 			<manufacturer>Headphones</manufacturer>
 			<condition>New</condition>
 			<discount>10.0</discount>
@@ -78,7 +78,7 @@
 		<product id="Headphones2">
 			<name>Headphones 2</name>
 			<price>349.99</price>
-			<image>ps3.jpg</image>
+			<image>22.jpg</image>
 			<manufacturer>Headphones</manufacturer>
 			<condition>New</condition>
 			<discount>10.0</discount>
@@ -88,7 +88,7 @@
 		<product id="VirtualReality1">
 			<name>Virtual Reality 1</name>
 			<price>349.99</price>
-			<image>ps3.jpg</image>
+			<image>31.jpg</image>
 			<manufacturer>Virtual Reality</manufacturer>
 			<condition>New</condition>
 			<discount>10.0</discount>
@@ -99,7 +99,7 @@
 		<product id="VirtualReality2">
 			<name>Virtual Reality 2</name>
 			<price>349.99</price>
-			<image>ps3.jpg</image>
+			<image>32.jpg</image>
 			<manufacturer>Virtual Reality</manufacturer>
 			<condition>New</condition>
 			<discount>10.0</discount>
@@ -109,7 +109,7 @@
 		<product id="PetTracker1">
 			<name>Pet Tracker 1</name>
 			<price>349.99</price>
-			<image>ps3.jpg</image>
+			<image>41.jpg</image>
 			<manufacturer>Pet Tracker</manufacturer>
 			<condition>New</condition>
 			<discount>10.0</discount>
@@ -163,7 +163,7 @@
 		<Laptop id="AppleLaptop1">
 			<name>Apple Laptop 1</name>
 			<price>50.99</price>
-			<image>ea_fifa.jpg</image>
+			<image>51.jpg</image>
 			<manufacturer>Apple</manufacturer>
 			<condition>New</condition>
 			<discount>15.0</discount>
@@ -171,7 +171,7 @@
 		<Laptop id="AppleLaptop2">
 			<name>Apple Laptop 2</name>
 			<price>50.99</price>
-			<image>ea_nfs.jpg</image>
+			<image>52.jpg</image>
 			<manufacturer>Apple</manufacturer>
 			<condition>Refurbished</condition>
 			<discount>15.0</discount>
@@ -179,7 +179,7 @@
 		<Laptop id="HPLaptop1">
 			<name>HP Laptop 1</name>
 			<price>50.99</price>
-			<image>activision_cod.jpg</image>
+			<image>53.jpg</image>
 			<manufacturer>HP</manufacturer>
 			<condition>New</condition>
 			<discount>15.0</discount>
@@ -187,8 +187,24 @@
 		<Laptop id="HPLaptop2">
 			<name>HP Laptop 2</name>
 			<price>50.99</price>
-			<image>tti_evolve.jpg</image>
+			<image>54.jpg</image>
 			<manufacturer>HP</manufacturer>
+			<condition>New</condition>
+			<discount>15.0</discount>
+		</Laptop>
+		<Laptop id="VA1">
+			<name>Voice Assistant 1</name>
+			<price>50.99</price>
+			<image>54.jpg</image>
+			<manufacturer>VA</manufacturer>
+			<condition>New</condition>
+			<discount>15.0</discount>
+		</Laptop>
+		<Laptop id="VA2">
+			<name>Voice Assistant 2</name>
+			<price>50.99</price>
+			<image>54.jpg</image>
+			<manufacturer>VA</manufacturer>
 			<condition>New</condition>
 			<discount>15.0</discount>
 		</Laptop>

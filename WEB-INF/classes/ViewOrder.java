@@ -245,7 +245,7 @@ public class ViewOrder extends HttpServlet {
 				for (OrderPayment oi : orderPayments.get(orderId)) {
 					if (oi.getOrderName().equals(orderName) && (oi.getUserName().equals(username) || user.getUsertype().equals("salesman"))) {
 						ListOrderPayment.add(oi);
-						pw.print("<h4 style='color:red'>Your Order is Cancelled</h4>");
+						pw.print("<h4 style='color:red'>Your Order is Cancelled</h4>");//check
 						System.out.println("Reached Here do get loop");
 
 					}
