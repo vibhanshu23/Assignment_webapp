@@ -53,7 +53,6 @@
 			<condition>New</condition>
 			<discount>10.0</discount>
 			<accessories>
-				<accessory>ps4_wc</accessory>
 			</accessories>
 		</product>
 		<product id="SmartWatch2">
@@ -64,7 +63,6 @@
 			<condition>New</condition>
 			<discount>10.0</discount>
 			<accessories>
-				<accessory>ps3_wc</accessory>
 			</accessories>
 		</product>
 		<product id="Headphones1">
@@ -75,7 +73,6 @@
 			<condition>New</condition>
 			<discount>10.0</discount>
 			<accessories>
-				<accessory>ps3_wc</accessory>
 			</accessories>
 		</product>
 		<product id="Headphones2">
@@ -86,7 +83,6 @@
 			<condition>New</condition>
 			<discount>10.0</discount>
 			<accessories>
-				<accessory>ps3_wc</accessory>
 			</accessories>
 		</product>
 		<product id="VirtualReality1">
@@ -108,7 +104,6 @@
 			<condition>New</condition>
 			<discount>10.0</discount>
 			<accessories>
-				<accessory>ps3_wc</accessory>
 			</accessories>
 		</product>
 		<product id="PetTracker1">
@@ -119,7 +114,6 @@
 			<condition>New</condition>
 			<discount>10.0</discount>
 			<accessories>
-				<accessory>ps3_wc</accessory>
 			</accessories>
 		</product>
 	</WearableTechnology>
@@ -238,7 +232,7 @@
 			<name>Controller</name>
 			<price>89.99</price>
 			<image>XBOX controller.jpg</image>
-			<manufacturer>microsoft</manufacturer>
+			<manufacturer>Fitness Watches</manufacturer>
 			<condition>New</condition>
 			<discount>40.0</discount>
 		</accessory>
@@ -246,7 +240,7 @@
 			<name>Turtle Beach Headset</name>
 			<price>89.99</price>
 			<image>Turtle Beach Headset.jpg</image>
-			<manufacturer>microsoft</manufacturer>
+			<manufacturer>Fitness Watches</manufacturer>
 			<condition>New</condition>
 			<discount>40.0</discount>
 		</accessory>
@@ -254,7 +248,7 @@
 			<name>joystick</name>
 			<price>89.99</price>
 			<image>joystick.jpg</image>
-			<manufacturer>microsoft</manufacturer>
+			<manufacturer>Fitness Watches</manufacturer>
 			<condition>New</condition>
 			<discount>40.0</discount>
 		</accessory>
@@ -262,7 +256,7 @@
 			<name>Keypad</name>
 			<price>89.99</price>
 			<image>keypad.jpg</image>
-			<manufacturer>microsoft</manufacturer>
+			<manufacturer>Fitness Watches</manufacturer>
 			<condition>New</condition>
 			<discount>40.0</discount>
 		</accessory>
@@ -270,7 +264,7 @@
 			<name>Starterkit</name>
 			<price>89.99</price>
 			<image>starterkit.jpeg</image>
-			<manufacturer>microsoft</manufacturer>
+			<manufacturer>Fitness Watches</manufacturer>
 			<condition>New</condition>
 			<discount>40.0</discount>
 		</accessory>
@@ -278,7 +272,7 @@
 			<name>Wireless adpter</name>
 			<price>89.99</price>
 			<image>wirelessadapter.jpg</image>
-			<manufacturer>microsoft</manufacturer>
+			<manufacturer>Fitness Watches</manufacturer>
 			<condition>New</condition>
 			<discount>40.0</discount>
 		</accessory>
@@ -286,7 +280,7 @@
 			<name>Wireless </name>
 			<price>89.99</price>
 			<image>wirelessadapter.jpg</image>
-			<manufacturer>microsoft</manufacturer>
+			<manufacturer>Fitness Watches</manufacturer>
 			<condition>New</condition>
 			<discount>40.0</discount>
 		</accessory>
@@ -294,7 +288,7 @@
 			<name>XBOX Speeding Wheel</name>
 			<price>89.99</price>
 			<image>XBOX360-SpeedWheel.jpg</image>
-			<manufacturer>microsoft</manufacturer>
+			<manufacturer>Fitness Watches</manufacturer>
 			<condition>New</condition>
 			<discount>40.0</discount>
 		</accessory>
@@ -302,7 +296,7 @@
 			<name>XBOX Wireless Adapter</name>
 			<price>89.99</price>
 			<image>xbox360_wa.png</image>
-			<manufacturer>microsoft</manufacturer>
+			<manufacturer>Fitness Watches</manufacturer>
 			<condition>New</condition>
 			<discount>40.0</discount>
 		</accessory>
@@ -310,7 +304,7 @@
 			<name>Remote</name>
 			<price>89.99</price>
 			<image>remote.jpg</image>
-			<manufacturer>microsoft</manufacturer>
+			<manufacturer>Fitness Watches</manufacturer>
 			<condition>New</condition>
 			<discount>40.0</discount>
 		</accessory>
@@ -318,7 +312,7 @@
 			<name>messengerkit</name>
 			<price>89.99</price>
 			<image>messengerkit.jpg</image>
-			<manufacturer>microsoft</manufacturer>
+			<manufacturer>Fitness Watches</manufacturer>
 			<condition>New</condition>
 			<discount>40.0</discount>
 		</accessory>
@@ -326,7 +320,7 @@
 			<name>Steering</name>
 			<price>89.99</price>
 			<image>steering.jpg</image>
-			<manufacturer>microsoft</manufacturer>
+			<manufacturer>Fitness Watches</manufacturer>
 			<condition>New</condition>
 			<discount>40.0</discount>
 		</accessory>
@@ -334,7 +328,7 @@
 			<name>Charger</name>
 			<price>89.99</price>
 			<image>charger.jpg</image>
-			<manufacturer>microsoft</manufacturer>
+			<manufacturer>Fitness Watches</manufacturer>
 			<condition>New</condition>
 			<discount>40.0</discount>
 		</accessory>
@@ -342,7 +336,7 @@
 			<name>PS Controller</name>
 			<price>89.99</price>
 			<image>XBOX controller.jpg</image>
-			<manufacturer>sony</manufacturer>
+			<manufacturer>Fitness Watches</manufacturer>
 			<condition>New</condition>
 			<discount>40.0</discount>
 		</accessory>
@@ -350,23 +344,7 @@
 			<name>PS Gaming HeadPhones</name>
 			<price>89.99</price>
 			<image>Turtle Beach Headset.jpg</image>
-			<manufacturer>sony</manufacturer>
-			<condition>New</condition>
-			<discount>40.0</discount>
-		</accessory>
-		<accessory id="nintendo_wc">
-			<name>nintendo Controller</name>
-			<price>89.99</price>
-			<image>Wii1.jpg</image>
-			<manufacturer>nintendo</manufacturer>
-			<condition>New</condition>
-			<discount>40.0</discount>
-		</accessory>
-		<accessory id="nintendo_sh">
-			<name>nintendo Racing Controller</name>
-			<price>89.99</price>
-			<image>Wii2.jpg</image>
-			<manufacturer>nintendo</manufacturer>
+			<manufacturer>Fitness Watches</manufacturer>
 			<condition>New</condition>
 			<discount>40.0</discount>
 		</accessory>

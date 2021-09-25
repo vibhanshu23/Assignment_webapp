@@ -22,7 +22,7 @@ public class Carousel{
 			
 	public String  carouselfeature(Utilities utility){
 				
-						
+		System.out.println("Carousal called 1");
 		HashMap<String, Console> hm = new HashMap<String, Console>();
 		StringBuilder sb = new StringBuilder();
 		String myCarousel = null;
@@ -34,14 +34,21 @@ public class Carousel{
 			name = "";
 		}
 		int l =0;
+		System.out.println("Carousal called utility.getCustomerOrders() " + utility.getCustomerOrders());
+
 		for (OrderItem oi : utility.getCustomerOrders())
 		{
-			if (hm.containsKey(oi.getName()))
+			System.out.println("Carousal called 2" +oi.getName());
+			System.out.println("Carousal called hm ---  " +hm);
+			String orderID = oi.getName().replaceAll("\\s", "");
+
+			if (hm.containsKey(orderID))
 			{	
 		        myCarousel = "myCarousel"+l;
-					
+				System.out.println("Carousal called 3");
+
 				sb.append("<div id='content'><div class='post'><h2 class='title meta'>");
-				sb.append("<a style='font-size: 24px;'>"+oi.getName()+" Accessories</a>");
+				sb.append("<a style='font-size: 24px;'>"+orderID+" Accessories</a>");
 				
 				sb.append("</h2>");
 
@@ -60,13 +67,14 @@ public class Carousel{
 				*/
 				sb.append("<div class='carousel-inner'>");
 						
-				Console console1 = hm.get(oi.getName());
-				System.out.print(oi.getName());
+				Console console1 = hm.get(orderID);
+				System.out.print(orderID);
 				int k = 0; int size= hm.size();
 			
 				for(Map.Entry<String, String> acc:console1.getAccessories().entrySet())
 				{
-				
+					System.out.println("Carousal called started for 1");
+
 					Accessory accessory= SaxParserDataStore.accessories.get(acc.getValue());
 					if (k==0 )
 					{
@@ -85,17 +93,17 @@ public class Carousel{
 							"<input type='hidden' name='name' value='"+acc.getValue()+"'>"+
 							"<input type='hidden' name='type' value='accessories'>"+
 							"<input type='hidden' name='maker' value='"+CategoryName+"'>"+
-							"<input type='hidden' name='access' value='"+oi.getName()+"'>"+
+							"<input type='hidden' name='access' value='"+orderID+"'>"+
 							"<input type='submit' class='btnbuy' value='Buy Now'></form></li>");
 					sb.append("<li><form method='post' action='WriteReview'>"+"<input type='hidden' name='name' value='"+acc+"'>"+
 							"<input type='hidden' name='type' value='accessories'>"+
 							"<input type='hidden' name='maker' value='"+CategoryName+"'>"+
-							"<input type='hidden' name='access' value='"+oi.getName()+"'>"+
+							"<input type='hidden' name='access' value='"+orderID+"'>"+
 							"<input type='submit' value='WriteReview' class='btnreview'></form></li>");
 					sb.append("<li><form method='post' action='ViewReview'>"+"<input type='hidden' name='name' value='"+acc+"'>"+
 							"<input type='hidden' name='type' value='accessories'>"+
 							"<input type='hidden' name='maker' value='"+CategoryName+"'>"+
-							"<input type='hidden' name='access' value='"+oi.getName()+"'>"+
+							"<input type='hidden' name='access' value='"+orderID+"'>"+
 							"<input type='submit' value='ViewReview' class='btnreview'></form></li>");
 
 					sb.append("</ul></div></div>");

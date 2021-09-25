@@ -292,6 +292,7 @@ public class SaxParserDataStore extends DefaultHandler {
 			accessoryHashMap.put(elementValueRead, elementValueRead);
 		}
 		if (element.equalsIgnoreCase("accessories") && currentElement.equals("product")) {
+			System.out.println("accesssssoorryy" + accessoryHashMap);
 			console.setAccessories(accessoryHashMap);
 			accessoryHashMap = new HashMap<String, String>();
 			return;

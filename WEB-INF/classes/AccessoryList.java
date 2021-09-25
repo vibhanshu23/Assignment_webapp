@@ -25,11 +25,11 @@ public class AccessoryList extends HttpServlet {
 		String CategoryName = request.getParameter("maker");
 //		String ConsoleName = request.getParameter("console");
 		HashMap<String, Console> hm = new HashMap<String, Console>();
-			if(CategoryName.equals("microsoft"))
+			if(CategoryName.equals("Fitness Watches"))
 			{
 				for(Map.Entry<String,Console> entry : SaxParserDataStore.consoles.entrySet())
 				{	
-					if(entry.getValue().getRetailer().equals("microsoft"))
+					if(entry.getValue().getRetailer().equals("Fitness Watches"))
 					{
 					 hm.put(entry.getValue().getId(),entry.getValue());
 					}

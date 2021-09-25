@@ -34,16 +34,16 @@ public class NextAccessory extends HttpServlet {
 		}
 		else
 		{
-		   if(CategoryName.equals("microsoft"))
+		   if(CategoryName.equals("Fitness Watches"))
 		   {
 			 for(Map.Entry<String,Console> entry : SaxParserDataStore.consoles.entrySet())
 			 {
-				if(entry.getValue().getRetailer().equals("microsoft"))
+				if(entry.getValue().getRetailer().equals("Fitness Watches"))
 				 {
 					 hm.put(entry.getValue().getId(),entry.getValue());
 				 }
 			 }
-				name = "microsoft";
+				name = "Fitness Watches";
 		   }
 		   else if(CategoryName.equals("sony"))
 		    {

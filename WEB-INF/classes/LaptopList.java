@@ -94,6 +94,7 @@ public class LaptopList extends HttpServlet {
 			pw.print("<strong>" + Tablet.getPrice() + "$</strong><ul>");
 			pw.print("<li id='item'><img src='images/tablets/"
 					+ Tablet.getImage() + "' alt='' /></li>");
+			System.out.println("------ Tablet.getImage()" +Tablet.getImage());
 			pw.print("<li><form method='post' action='Cart'>" +
 					"<input type='hidden' name='name' value='"+entry.getKey()+"'>"+
 					"<input type='hidden' name='type' value='tablets'>"+
